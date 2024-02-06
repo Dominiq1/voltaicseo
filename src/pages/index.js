@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useEffect } from 'react';
 import { Link } from "gatsby"
 import solarHouseImage from "../images/solar.jpg"
 import hvacImage from "../images/hvacart.png"
@@ -15,6 +16,9 @@ const guaranteeSectionStyles = {
   padding: "2rem 1rem", // Smaller padding on mobile
   textAlign: "center", // Center text for mobile
 }
+
+
+
 
 // Testimonial Section Styles
 const testimonialSectionStyles = {
@@ -389,6 +393,20 @@ const Footer = () => (
 
 // Main page component
 const IndexPage = () => {
+
+  const applyMediaQueries = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= parseInt(mobileBreakpoint)) {
+      headingStyles.fontSize = "1.8rem"; // Smaller font size for mobile
+      subHeadingStyles.fontSize = "1rem"; // Smaller font size for mobile
+      contentContainerStyle.paddingLeft = "1rem"; // Less padding for mobile
+      // Add other style adjustments here
+    }
+  };
+  useEffect(() => {
+    // This code runs after component mounts, which is only in the browser
+    // Safe place to access window or other browser-specific globals
+    applyMediaQueries();
+  }, []);
   return (
     <main style={pageStyles}>
       {/* <NavigationBar /> */}
