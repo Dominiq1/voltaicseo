@@ -129,16 +129,6 @@ const mobileBreakpoint = '768px'; // This is a common breakpoint for mobile devi
 
 
 
-// Apply media queries
-const applyMediaQueries = () => {
-  if (window.innerWidth <= parseInt(mobileBreakpoint)) {
-    headingStyles.fontSize = '1.8rem'; // Smaller font size for mobile
-    subHeadingStyles.fontSize = '1rem'; // Smaller font size for mobile
-    contentContainerStyle.paddingLeft = '1rem'; // Less padding for mobile
-    heroSectionStyles.padding = '2rem 1rem'; // Less vertical padding for mobile
-    quoteButtonStyles.padding = '0.5rem 1rem'; // Adjust as needed for mobile
-  }
-};
 
 // Assuming `navigationLinkStyles` is defined elsewhere and includes common link styles
 const navigationLinkStyles = {
@@ -407,6 +397,9 @@ const IndexPage = () => {
     // Safe place to access window or other browser-specific globals
     applyMediaQueries();
   }, []);
+
+
+  
   return (
     <main style={pageStyles}>
       {/* <NavigationBar /> */}

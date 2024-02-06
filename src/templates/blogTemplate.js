@@ -39,6 +39,18 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      excerpt
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
     }
   }
 `;
