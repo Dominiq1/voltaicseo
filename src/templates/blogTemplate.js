@@ -13,7 +13,12 @@ const BlogPostTemplate = ({ data }) => {
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <NavigationBar />
       <article>
-        <header style={{ background: `url(${post.frontmatter.featuredImage.childImageSharp.fluid.src}) no-repeat center center`, backgroundSize: 'cover', padding: '5rem 1rem', textAlign: 'center' }}>
+      <header style={{ 
+  background: `url(${post.frontmatter.featuredImage}) no-repeat center center`, 
+  backgroundSize: 'cover', 
+  padding: '5rem 1rem', 
+  textAlign: 'center' 
+}}>
           <h1>{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
@@ -26,6 +31,7 @@ const BlogPostTemplate = ({ data }) => {
 };
 
 export default BlogPostTemplate;
+
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
@@ -33,7 +39,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        slug
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 1920) {
@@ -45,3 +50,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+
