@@ -1,0 +1,70 @@
+/* navigation.css */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #008ca8;
+
+    color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav img {
+    height: 3em;
+  }
+  
+  nav button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none; /* Hide button on desktop */
+  }
+  
+  nav div {
+    display: flex;
+  }
+  
+  /* Style for navigation links */
+  .navigation-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Style for navigation links on hover */
+  .navigation-link:hover {
+    color: #e0f2f1;
+  }
+  
+  /* Responsive navigation styles */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav button {
+      display: block; /* Show button on mobile */
+      align-self: flex-end;
+    }
+  
+    /* When menu is open, display flex; otherwise, display none */
+    .menu-responsive {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      display: none; /* Change this to 'flex' when menu is open */
+    }
+  
+    /* Adjust link styles for mobile */
+    .navigation-link {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+  

@@ -1,0 +1,42 @@
+/* styles.css */
+
+/* Content1 styles */
+.content1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #f6f6f6;
+}
+
+.content1Text {
+  max-width: 50%;
+}
+
+.content1Image {
+  max-width: 45%;
+  overflow: hidden;
+}
+
+.imageStyle {
+  width: 100%;
+  height: auto;
+  filter: blur(4px);
+  transform: scale(1.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .content1 {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  .content1Text,
+  .content1Image {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  .imageStyle {
+    filter: blur(2px);
+  }
+}
