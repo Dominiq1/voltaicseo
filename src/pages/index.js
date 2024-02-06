@@ -130,6 +130,7 @@ const mobileBreakpoint = '768px'; // This is a common breakpoint for mobile devi
 
 
 
+
 // Assuming `navigationLinkStyles` is defined elsewhere and includes common link styles
 const navigationLinkStyles = {
   textDecoration: 'none',
@@ -137,9 +138,6 @@ const navigationLinkStyles = {
   fontWeight: 'bold',
   // Other link styles
 };
-
-// Invoke the function to apply media queries
-applyMediaQueries();
 
 const footerStyles = {
   backgroundColor: "#040e18",
@@ -384,22 +382,20 @@ const Footer = () => (
 // Main page component
 const IndexPage = () => {
 
-  const applyMediaQueries = () => {
-    if (typeof window !== "undefined" && window.innerWidth <= parseInt(mobileBreakpoint)) {
-      headingStyles.fontSize = "1.8rem"; // Smaller font size for mobile
-      subHeadingStyles.fontSize = "1rem"; // Smaller font size for mobile
-      contentContainerStyle.paddingLeft = "1rem"; // Less padding for mobile
-      // Add other style adjustments here
-    }
-  };
+ 
   useEffect(() => {
     // This code runs after component mounts, which is only in the browser
     // Safe place to access window or other browser-specific globals
-    applyMediaQueries();
+    const handleResize = () => {
+      // Your resize logic here, e.g. setting state based on window size
+    };
+
+    handleResize(); // Call once to set state on mount
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-
-  
   return (
     <main style={pageStyles}>
       {/* <NavigationBar /> */}
