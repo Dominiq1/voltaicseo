@@ -512,6 +512,7 @@ const IndexPage = () => {
 
  
   useEffect(() => {
+
     // This code runs after component mounts, which is only in the browser
     // Safe place to access window or other browser-specific globals
     const handleResize = () => {
@@ -520,6 +521,23 @@ const IndexPage = () => {
 
     handleResize(); // Call once to set state on mount
     window.addEventListener('resize', handleResize);
+
+    // Hotjar Tracking Code
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:3859647,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+
+
+
+
+
+
 
     // Clean up the event listener when the component unmounts
     return () => window.removeEventListener('resize', handleResize);
