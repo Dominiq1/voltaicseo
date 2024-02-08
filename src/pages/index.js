@@ -369,12 +369,32 @@ const ServicesSection = () => (
   </section>
 );
 
-const TestimonialSection = () => (
-  <section style={testimonialSectionStyles}>
-    <h2>What Our Customers Say</h2>
-    {/* Add testimonials here */}
-  </section>
-);
+
+const TestimonialSection = () => {
+  useEffect(() => {
+    // Create a script element
+    const script = document.createElement('script');
+    script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
+    script.async = true;
+    script.defer = true;
+
+    // Append the script to the body
+    document.body.appendChild(script);
+
+    // Clean up the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <section style={testimonialSectionStyles}>
+      <h2>What Our Customers Say</h2>
+      {/* The widget will attach itself to this div */}
+      <div className="sk-ww-google-reviews" data-embed-id="25361293"></div>
+    </section>
+  );
+};
 
 // Define your components
 // const NavigationBar = () => (
