@@ -153,6 +153,7 @@ const serviceItemStyles = {
   backgroundColor: 'teal',
   borderRadius:'20px',
   marginTop: '1em' ,
+  color: 'white'
 
 };
 
