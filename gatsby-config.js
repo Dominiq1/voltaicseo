@@ -25,11 +25,12 @@ module.exports = {
     //     },
     //   },
     // },s
+      `gatsby-plugin-react-helmet`,
      {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/src/content/`, 
+        path: `${__dirname}/src/content/blog`, 
       },
     },
     {

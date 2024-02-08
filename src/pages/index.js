@@ -1,6 +1,6 @@
 import * as React from "react"
-import { useEffect } from 'react';
-import { Link } from "gatsby"
+import { useEffect , useState, useRef} from 'react';
+import { Link, Script } from "gatsby"
 import solarHouseImage from "../images/solar.jpg"
 import hvacImage from "../images/hvacart.png"
 import fanImage  from "../images/fan.png"
@@ -8,17 +8,13 @@ import titleImage  from "../images/title24.png"
 import solarImage from "../images/solar.png"
 import logo from "../images/voltaiclogo.png"
 import NavigationBar from "../components/NavigationBar"
-
+import { Helmet } from 'react-helmet';
 // Global Styles
-
 const guaranteeSectionStyles = {
   backgroundColor: "#f0f4f8",
   padding: "2rem 1rem", // Smaller padding on mobile
   textAlign: "center", // Center text for mobile
 }
-
-
-
 
 // Testimonial Section Styles
 const testimonialSectionStyles = {
@@ -36,9 +32,11 @@ const contactSectionStyles = {
 // Global Styles
 const pageStyles = {
   color: "#232129",
-  padding: "0",
   fontFamily: "'Source Sans Pro', sans-serif",
   overflowX: "hidden",
+  margin: 0, // Ensure no margin is affecting the full width
+  padding: 0, // Ensure no padding is affecting the full width
+
 }
 
 // Navigation Bar Styles
@@ -53,24 +51,21 @@ const navigationBarStyles = {
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // subtle shadow for depth
 }
 
-
-
 const heroSectionStyles = {
   position: 'relative',
   color: "#fff",
-  // Removed textAlign as it's no longer needed for the entire section
-  padding: "4rem 1rem", // Adjust padding as needed, adding more top padding
-  backgroundImage: `url(${solarHouseImage})`, // Replace with your actual image path
+  backgroundImage: `url(${solarHouseImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: 'flex-start', // Align items to the start (left)
+  alignItems: 'center', // Align items to the center
   width: '100%', // Full width
-  minHeight: '45em', // Full viewport height
-  zIndex: 1, // Below the overlay
+  minHeight: '45em', // Adjust height as needed
+  zIndex: 1,
 };
+
 
 // Style for the content container
 const contentContainerStyle = {
@@ -127,10 +122,6 @@ const quoteButtonStyles = {
 // Media query for mobile devices
 const mobileBreakpoint = '768px'; // This is a common breakpoint for mobile devices, adjust as needed
 
-
-
-
-
 // Assuming `navigationLinkStyles` is defined elsewhere and includes common link styles
 const navigationLinkStyles = {
   textDecoration: 'none',
@@ -165,7 +156,6 @@ const serviceItemStyles = {
 
 };
 
-
 // Inside your component or a separate CSS file
 // This will be a <style> tag if inside the component or CSS rules if in a CSS file
 const styles = `
@@ -176,7 +166,23 @@ const styles = `
     }
   }
 `;
+// Define the styles for the chat interface
+const chatInterfaceStyles = {
+  display: 'flex', // Use flexbox for alignment
+  flexDirection: 'column', // Stack the input and button vertically
+  alignItems: 'center', // Center-align the items
+  justifyContent: 'center', // Center vertically in the hero section
+  padding: '20px', // Add some padding
+  backgroundColor: 'rgba(255, 255, 255, 0.9)', // Semi-transparent white background
+  borderRadius: '10px', // Rounded corners
+  width: '80%', // Use a percentage of the hero section width
+  maxWidth: '600px', // Maximum width of the chat interface
+  marginTop: '20px', // Space from the top or from the previous content
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Optional: add a subtle shadow for depth
+  zIndex: 2, // Ensure the chat interface is above the overlay
+};
 
+// Then, in your HeroSection component, you would use it
 
 // Input and Button Styles with Rounded Corners
 const inputStyles = {
@@ -209,8 +215,51 @@ const GuaranteeSection = () => (
   </section>
 );
 
+// Chat Interface Component
+const ChatInterface = () => {
+  const [userInput, setUserInput] = useState('');
+  const [chatHistory, setChatHistory] = useState([]);
 
+  const handleInputChange = (event) => {
+    setUserInput(event.target.value);
+  };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newChat = { id: chatHistory.length + 1, text: userInput, type: 'user' };
+    setChatHistory([...chatHistory, newChat]);
+    setUserInput(''); // Clear input after submission
+
+    // Here, you would typically make an API call to get a response
+    // For simplicity, we're just echoing the user input as a system response
+    const systemResponse = { id: chatHistory.length + 2, text: `You said: ${userInput}`, type: 'system' };
+    setChatHistory((prevChatHistory) => [...prevChatHistory, systemResponse]);
+  };
+
+  return (
+    <div style={{ padding: '20px', maxWidth: '600px', margin: 'auto' }}>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={userInput}
+          onChange={handleInputChange}
+          placeholder="Ask a question..."
+          style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
+        />
+        <button type="submit" style={{ width: '100%', padding: '10px' }}>Submit</button>
+      </form>
+      <div>
+        {chatHistory.map((chat) => (
+          <div key={chat.id} style={{ textAlign: chat.type === 'user' ? 'left' : 'right' }}>
+            <p style={{ background: chat.type === 'user' ? '#ddf' : '#fdd', padding: '10px', borderRadius: '10px' }}>
+              {chat.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const EnergyIndependenceSection = () => (
   <section style={{
@@ -262,7 +311,6 @@ const EnergyIndependenceSection = () => (
     </div>
   </section>
 );
-
 
 const ServicesSection = () => (
   <section style={servicesSectionStyles}>
@@ -321,9 +369,6 @@ const ServicesSection = () => (
   </section>
 );
 
-
-
-
 const TestimonialSection = () => (
   <section style={testimonialSectionStyles}>
     <h2>What Our Customers Say</h2>
@@ -360,19 +405,81 @@ const ContactSection = () => (
   </section>
 )
 
-const HeroSection = () => (
-  <section style={heroSectionStyles}>
-    <div style={overlayStyle}></div> {/* Overlay */}
-    <div style={contentContainerStyle}> {/* Content container */}
-    <h1 style={headingStyles}>Empower Your Home with Sustainable Energy Solutions</h1>
-  <p style={subHeadingStyles}>Start Your Eco-Friendly Journey Today!</p>
+
+
+
+
+// You might need to define `chatInterfaceStyles` based on your design preferences.
+
+
+
+const HeroSection = () => {
+  const widgetRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://stella.demand-iq.com/widget-address/voltaic-construction.estimate.demand-iq.com/";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // The widget may take some time to load, so we might need to set a timeout
+    // to apply styles after it's present in the DOM.
+    const timer = setTimeout(() => {
+      if (widgetRef.current) {
+        const widgetContainer = widgetRef.current;
+        const widget = widgetContainer.querySelector('.demand-iq-stella-widget');
+        if (widget) {
+          // Apply custom styles here
+          widget.style.margin = '0 auto';
+          widget.style.display = 'flex';
+          widget.style.flexDirection = 'column';
+          widget.style.alignItems = 'center';
+          widget.style.justifyContent = 'center';
+        }
+      }
+    }, 1000); // Adjust the timeout as needed
+
+    return () => {
+      clearTimeout(timer);
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <section style={heroSectionStyles}>
+      <div style={overlayStyle}></div>
+      <div style={contentContainerStyle}>
+        <h1 style={headingStyles}>Defend Your Home From Blackouts —</h1>
+        <p style={subHeadingStyles}>Get Your Custom Energy Resilience plan today!</p>
+        <div ref={widgetRef} className="demand-iq-stella-widget" data-utm-content=""></div>
+      </div>
+    </section>
+  );
+};
+
+
+
+
+
+// const HeroSection = () => (
+//   <section style={heroSectionStyles}>
+//     <div style={overlayStyle}></div> {/* Overlay */}
+//     <div style={contentContainerStyle}> {/* Content container */}
+//     <h1 style={headingStyles}>Defend Your Home From Blackouts —</h1>
+//   <p style={subHeadingStyles}>Get Your Custom Energy Resilience plan today!</p>
  
-      <Link to="/quote" style={{ ...navigationLinkStyles, ...quoteButtonStyles }}>
-        GET A QUOTE
-      </Link>
-    </div>
-  </section>
-);
+//       <Link to="/quote" style={{ ...navigationLinkStyles, ...quoteButtonStyles }}>
+//         View Solar on my home
+//       </Link>
+
+
+
+      
+//     </div>
+//   </section>
+// );
+
+
 const Footer = () => (
   <footer style={footerStyles}>
     <p>© {new Date().getFullYear()} Voltaic Energy Company</p>
@@ -398,10 +505,27 @@ const IndexPage = () => {
   }, []);
   return (
     <main style={pageStyles}>
+      <Helmet>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Home Page</title>
+      <style>{`
+    html, body {
+      margin: 0;
+      padding: 0;
+      /* ... other styles ... */
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      /* ... other styles ... */
+    }
+  `}</style>
+      </Helmet>
       {/* <NavigationBar /> */}
       <NavigationBar/>
+      {/* <ChatInterface/> */}
       <HeroSection />
-      
+
+    
       <GuaranteeSection />
       <ServicesSection />
       <EnergyIndependenceSection/>
@@ -410,6 +534,7 @@ const IndexPage = () => {
       {/* Other sections can be added here */}
       {/* Additional content sections would go here */}
       <Footer />
+    
     </main>
   )
 }
@@ -417,3 +542,4 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => <title>Home Page</title>
+

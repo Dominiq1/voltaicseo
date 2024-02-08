@@ -1,5 +1,4 @@
 const path = require('path');
-const fetch = require('node-fetch');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -14,10 +13,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`);
+  const blogPostTemplate = path.resolve('src/templates/blogTemplate.js');
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -31,21 +29,24 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
+
+  // Error handling
+  if (result.errors) {
+    console.error(result.errors);
+    throw new Error('There was an error fetching posts', result.errors);
+  }
+
+  // Page creation
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blogTemplate.js`),
+      component: blogPostTemplate,
       context: {
-        // This slug is passed to the template and used by Gatsby to filter the correct node.
         slug: node.fields.slug,
       },
     });
   });
-  
-  
-
 };
-
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
