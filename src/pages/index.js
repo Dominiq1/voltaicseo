@@ -369,32 +369,37 @@ const ContactSection = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-
+  
     const formData = {
       name: event.target.elements.name.value,
       email: event.target.elements.email.value,
       homeSize: event.target.elements.homeSize.value,
     };
-
+  
     try {
-      const response = await fetch('/.netlify/functions/submitToCrm', {
+      const response = await fetch('/api/submitToCrm', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
-      if (response.ok) {
-        setFormSubmitted(true);
-      } else {
-        throw new Error('Network response was not ok.');
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+  
+      const responseBody = await response.json();
+      setFormSubmitted(true);
     } catch (error) {
       console.error('There was an error submitting the form:', error);
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
+  
+  
+
 
   // If the form has been submitted, display the success message
   if (formSubmitted) {
