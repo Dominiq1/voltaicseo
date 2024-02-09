@@ -9,6 +9,33 @@ import solarImage from "../images/solar.png"
 import logo from "../images/voltaiclogo.png"
 import NavigationBar from "../components/NavigationBar"
 import { Helmet } from 'react-helmet';
+
+
+
+
+
+
+
+// Define your base styles outside of the component
+const baseHeadingStyles = {
+  fontSize: '2rem', // Adjust base font size as needed
+  fontWeight: 'bold',
+  margin: '0.5rem 0',
+  // Do not set text alignment here, we'll handle it in media queries
+};
+
+const baseSubHeadingStyles = {
+  fontSize: '1.5rem',
+  margin: '0.5rem 0',
+  // Do not set text alignment here, we'll handle it in media queries
+};
+
+const baseInputStyles = {
+  width: '100%', // Full width
+  padding: '10px',
+  margin: '10px 0',
+  // Add any additional base styles for the input
+};
 // Global Styles
 const guaranteeSectionStyles = {
   backgroundColor: "#f0f4f8",
@@ -48,23 +75,25 @@ const heroSectionStyles = {
   backgroundPosition: "center",
   display: "flex",
   flexDirection: "column",
+  alignItems: 'flex-start', // Align items to the start (left)
+  textAlign: 'left', // Align text to the left
+  padding: '4rem 1rem', // Adjust padding as needed
   justifyContent: "center",
-  alignItems: 'center', // Align items to the center
   width: '100%', // Full width
   minHeight: '100vh', // Make sure it takes at least the full height of the viewport
-  padding: '4rem 1rem', // Add padding on mobile
   zIndex: 1,
 };
 
 
-// Style for the content container
 const contentContainerStyle = {
   position: 'relative',
   zIndex: 3,
   maxWidth: '1200px', // Max width of the content, can be adjusted
   width: '100%', // Full width of the content
-  paddingLeft: '3rem', // Padding from the left side
-  // Add responsive padding here as needed
+  paddingLeft: '1rem', // Consistent padding from the left side
+  paddingRight: '1rem', // Consistent padding from the right side
+  marginLeft: 'auto', // Center the container
+  marginRight: 'auto', // Center the container
 };
 
 // Overlay style to darken the background image
@@ -149,6 +178,26 @@ const buttonStyles = {
   cursor: "pointer", // Pointer cursor on hover
 }
 
+// Media query for mobile devices
+const responsiveStyles = `
+@media (max-width: 768px) {
+  .hero-heading {
+    text-align: left;
+    width: 100%; // Full width
+    margin-left: 0; // Reset any left margin
+  }
+  .hero-subheading {
+    text-align: left;
+    width: 100%; // Full width
+    margin-left: 0; // Reset any left margin
+  }
+  .hero-input,
+  .hero-button {
+    width: 90%; // Adjust width as needed
+    margin: 0.5rem 5%; // Adjust margin for centering
+  }
+}
+`;
 
 const GuaranteeSection = () => (
   <section style={guaranteeSectionStyles}>
@@ -316,6 +365,8 @@ const ServicesSection = () => (
 );
 
 
+
+
 const TestimonialSection = () => {
   useEffect(() => {
     // Create a script element
@@ -412,14 +463,20 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section style={heroSectionStyles}>
-      <div style={overlayStyle}></div>
-      <div style={contentContainerStyle}>
-        <h1 style={headingStyles}>Defend Your Home From Blackouts —</h1>
-        <p style={subHeadingStyles}>Get Your Custom Energy Resilience plan today!</p>
-        <div ref={widgetRef} className="demand-iq-stella-widget" data-utm-content=""></div>
-      </div>
-    </section>
+   
+
+
+<section style={heroSectionStyles}>
+<style>{responsiveStyles}</style>
+<div style={overlayStyle}></div> {/* Overlay */}
+<div style={contentContainerStyle}> {/* Content container */}
+  <h1 className="hero-heading" style={baseHeadingStyles}>Defend Your Home From Blackouts —</h1>
+  <p className="hero-subheading" style={baseSubHeadingStyles}>Get Your Custom Energy Resilience plan today!</p>
+  {/* Input and button elements with classes for styling */}
+  <div ref={widgetRef} className="demand-iq-stella-widget" data-utm-content=""></div>
+
+</div>
+</section>
   );
 };
 
