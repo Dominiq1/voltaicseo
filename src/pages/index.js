@@ -39,17 +39,6 @@ const pageStyles = {
 
 }
 
-// Navigation Bar Styles
-const navigationBarStyles = {
-  //backgroundColor: "#00B4D8", // Teal color for navigation
-  backgroundColor: 'teal',
-  color: "#fff", // White color for text
-  padding: "1rem 2rem",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // subtle shadow for depth
-}
 
 const heroSectionStyles = {
   position: 'relative',
@@ -62,7 +51,8 @@ const heroSectionStyles = {
   justifyContent: "center",
   alignItems: 'center', // Align items to the center
   width: '100%', // Full width
-  minHeight: '45em', // Adjust height as needed
+  minHeight: '100vh', // Make sure it takes at least the full height of the viewport
+  padding: '4rem 1rem', // Add padding on mobile
   zIndex: 1,
 };
 
@@ -94,6 +84,7 @@ const headingStyles = {
   fontWeight: 'bold',
   // backgroundColor: 'green',
   width:'70vw',
+  textAlign: 'center', 
   // color:'red',
   margin: '0.5rem 0', // Adjust spacing as needed
   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Optional: Text shadow for better readability
@@ -105,30 +96,7 @@ const subHeadingStyles = {
   margin: '0.5rem 0', // Adjust spacing as needed
 };
 
-// Specific styles for the "GET A QUOTE" button
-const quoteButtonStyles = {
-  background: '#00B4D8',
-  padding: '0.5rem 1rem',
-  borderRadius: '2px',
-  textDecoration: 'none',
-  color: '#fff',
-  fontWeight: 'bold',
-  fontSize: '1.25rem', // Adjust size as needed
-  margin: '1rem 0', // Adjust spacing as needed
-  textShadow: '1px 1px 3px rgba(0, 0, 0, 0.3)', // Optional: Text shadow for better readability
-  display: 'inline-block', // To apply padding and margin correctly
-  boxShadow: '3px 3px 6px rgba(0, 0, 0, 0.2)', // Optional: Box shadow for a 3D effect
-};
-// Media query for mobile devices
-const mobileBreakpoint = '768px'; // This is a common breakpoint for mobile devices, adjust as needed
 
-// Assuming `navigationLinkStyles` is defined elsewhere and includes common link styles
-const navigationLinkStyles = {
-  textDecoration: 'none',
-  color: '#fff',
-  fontWeight: 'bold',
-  // Other link styles
-};
 
 const footerStyles = {
   backgroundColor: "#040e18",
@@ -157,45 +125,22 @@ const serviceItemStyles = {
 
 };
 
-// Inside your component or a separate CSS file
-// This will be a <style> tag if inside the component or CSS rules if in a CSS file
-const styles = `
-  @media (min-width: 768px) {
-    .service-item {
-      width: calc(25% - 1rem); // 4 items per row on desktop
-      margin: 0.5rem; // Add margin on desktop
-    }
-  }
-`;
-// Define the styles for the chat interface
-const chatInterfaceStyles = {
-  display: 'flex', // Use flexbox for alignment
-  flexDirection: 'column', // Stack the input and button vertically
-  alignItems: 'center', // Center-align the items
-  justifyContent: 'center', // Center vertically in the hero section
-  padding: '20px', // Add some padding
-  backgroundColor: 'rgba(255, 255, 255, 0.9)', // Semi-transparent white background
-  borderRadius: '10px', // Rounded corners
-  width: '80%', // Use a percentage of the hero section width
-  maxWidth: '600px', // Maximum width of the chat interface
-  marginTop: '20px', // Space from the top or from the previous content
-  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Optional: add a subtle shadow for depth
-  zIndex: 2, // Ensure the chat interface is above the overlay
-};
 
 // Then, in your HeroSection component, you would use it
 
 // Input and Button Styles with Rounded Corners
 const inputStyles = {
-  margin: "0.5rem",
+  width: '90%', // Take up most of the width, leave some margin
+  margin: '0.5rem 5%', 
   padding: "0.5rem",
   borderRadius: "20px", // Rounded corners for inputs
   border: "1px solid #ccc", // Standard border color
-  width: "calc(100% - 1rem)", // Full width minus margin
+ 
 }
 
 const buttonStyles = {
-  margin: "0.5rem",
+  width: '90%', // Take up most of the width, leave some margin
+  margin: '0.5rem 5%', // Center by adding equal left and right margin
   padding: "0.5rem 1rem",
   backgroundColor: "#00B4D8",
   color: "#fff",
@@ -542,8 +487,8 @@ const IndexPage = () => {
     }
   `}</style>
       </Helmet>
-      {/* <NavigationBar /> */}
-      <NavigationBar/>
+      <NavigationBar />
+      {/* <NavigationBar/> */}
       {/* <ChatInterface/> */}
       <HeroSection />
 
