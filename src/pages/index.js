@@ -13,9 +13,6 @@ import { Helmet } from 'react-helmet';
 
 
 
-
-
-
 // Define your base styles outside of the component
 const baseHeadingStyles = {
   fontSize: '2rem', // Adjust base font size as needed
@@ -210,51 +207,6 @@ const GuaranteeSection = () => (
   </section>
 );
 
-// Chat Interface Component
-const ChatInterface = () => {
-  const [userInput, setUserInput] = useState('');
-  const [chatHistory, setChatHistory] = useState([]);
-
-  const handleInputChange = (event) => {
-    setUserInput(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newChat = { id: chatHistory.length + 1, text: userInput, type: 'user' };
-    setChatHistory([...chatHistory, newChat]);
-    setUserInput(''); // Clear input after submission
-
-    // Here, you would typically make an API call to get a response
-    // For simplicity, we're just echoing the user input as a system response
-    const systemResponse = { id: chatHistory.length + 2, text: `You said: ${userInput}`, type: 'system' };
-    setChatHistory((prevChatHistory) => [...prevChatHistory, systemResponse]);
-  };
-
-  return (
-    <div style={{ padding: '20px', maxWidth: '600px', margin: 'auto' }}>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={userInput}
-          onChange={handleInputChange}
-          placeholder="Ask a question..."
-          style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
-        />
-        <button type="submit" style={{ width: '100%', padding: '10px' }}>Submit</button>
-      </form>
-      <div>
-        {chatHistory.map((chat) => (
-          <div key={chat.id} style={{ textAlign: chat.type === 'user' ? 'left' : 'right' }}>
-            <p style={{ background: chat.type === 'user' ? '#ddf' : '#fdd', padding: '10px', borderRadius: '10px' }}>
-              {chat.text}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const EnergyIndependenceSection = () => (
   <section style={{
@@ -408,19 +360,70 @@ const TestimonialSection = () => {
 
 
 // Updated and additional components based on the provided code structure
+// ... other imports and code ...
 
-const ContactSection = () => (
-  <section style={contactSectionStyles}>
-    <h2>Get A Quote Today</h2>
-    <p>Free, No Obligation</p>
-    <form style={{ maxWidth: "800px", margin: "0 auto" }}>
-      <input type="text" placeholder="Name" style={inputStyles} />
-      <input type="email" placeholder="Email*" required style={inputStyles} />
-      <input type="text" placeholder="Home Size" style={inputStyles} />
-      <button type="submit" style={buttonStyles}>Submit</button>
-    </form>
-  </section>
-)
+const ContactSection = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = {
+      name: event.target.elements.name.value,
+      email: event.target.elements.email.value,
+      homeSize: event.target.elements.homeSize.value,
+    };
+
+    try {
+      const response = await fetch('/.netlify/functions/submitToCrm', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    } catch (error) {
+      console.error('There was an error submitting the form:', error);
+    }
+    setIsSubmitting(false);
+  };
+
+  // If the form has been submitted, display the success message
+  if (formSubmitted) {
+    return (
+      <div style={contactSectionStyles}>
+        <h2>Thank you for your submission!</h2>
+        <p>We will be in touch soon.</p>
+      </div>
+    );
+  }
+
+  // If the form hasn't been submitted, display the form
+  return (
+    <section style={contactSectionStyles}>
+      <h2>Get A Quote Today</h2>
+      <p>Free, No Obligation</p>
+      <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <input name="name" type="text" placeholder="Name" style={inputStyles} />
+        <input name="email" type="email" placeholder="Email*" required style={inputStyles} />
+        <input name="homeSize" type="text" placeholder="Home Size" style={inputStyles} />
+        <button type="submit" style={buttonStyles} disabled={isSubmitting}>
+          {isSubmitting ? 'Submitting...' : 'Submit'}
+        </button>
+      </form>
+    </section>
+  );
+};
+
+// ... other components and code ...
 
 
 

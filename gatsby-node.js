@@ -15,6 +15,53 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 
 
+
+exports.handler = async (event) => {
+  const { name, email, homeSize } = JSON.parse(event.body);
+  
+  // Process the data, send it to the CRM, and send an email
+  // This will depend on your CRM's API and your email service provider
+  // Define the data you want to send
+const testData = {
+  name: name,
+  email: email,
+  homeSize: homeSize
+};
+
+
+  //Zapier catch hook : 
+
+  // Use fetch to send a POST request to the Zapier webhook
+fetch('https://hooks.zapier.com/hooks/catch/8338143/3lse903/', {
+  method: 'POST',
+  body: JSON.stringify(testData),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+
+
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ message: 'Form submitted successfully!' }),
+  };
+
+
+
+
+};
+
+
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
