@@ -376,6 +376,8 @@ const ContactSection = () => {
       homeSize: event.target.elements.homeSize.value,
     };
   
+
+    
     try {
       const response = await fetch('/api/submitToCrm', {
         method: 'POST',
