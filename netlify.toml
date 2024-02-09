@@ -1,9 +1,9 @@
 [build]
   command = "gatsby build"
   publish = "public"
-  functions = "src/.netlify/functions" # Correct path to your functions directory
+  functions = "src/.netlify/functions"
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat" # Redirect to the correct functions endpoint
+  to = "/.netlify/functions/:splat"
   status = 200
