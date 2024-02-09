@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 import NavigationBar from '../components/NavigationBar';
 import SEO from '../components/seo';
 import { Helmet } from 'react-helmet';
-
+import solarHouseImage from "../images/solar.jpg"
 
 //Doesnt work: 
 
@@ -54,59 +54,35 @@ const BlogPostTemplate = ({ data }) => {
 
 
 
-  
   return (
-
-
-
     <Layout isFullWidth={true}>
-    <SEO title={post?.frontmatter?.title || 'Blog Post'} description={post?.excerpt || ''} />
-    <NavigationBar />
-    <article>
-      <header style={{
-        padding: '5rem 1rem',
-        textAlign: 'center',
-        backgroundImage: featuredImage ? `url(${featuredImage})` : 'none',
-        backgroundSize: 'cover',
-        color: '#fff', // Assuming white text for a dark image
-      }}>
-        <h1>{post?.frontmatter?.title || 'Blog Title'}</h1>
-        <p>{post?.frontmatter?.date || 'Blog Date'}</p>
-      </header>
-      <section style={{
-        padding: '2rem 5%',
-        lineHeight: '1.6',
-        backgroundColor: '#f8f8f8', // A light background for the content
-        color: '#333', // Dark text for readability
-      }}>
-        <div dangerouslySetInnerHTML={{ __html: post?.html || 'No Content' }} />
-      </section>
-    </article>
-  </Layout>
-
-
-    // <Layout>
-
-
-    //   <SEO title={post?.frontmatter?.title || 'Blog Post'} description={post?.excerpt || ''} />
-    //   <NavigationBar />
-    //   <article>
-    //     <header style={{ 
-    //       padding: '5rem 1rem', 
-    //       textAlign: 'center',
-    //       backgroundImage: featuredImage ? `url(${featuredImage})` : undefined,
-    //       backgroundSize: 'cover',
-    //     }}>
-    //       {!featuredImage && <h1>{post?.frontmatter?.title || 'No Title'}</h1>}
-    //       <p>{post?.frontmatter?.date || 'No Date'}</p>
-    //     </header>
-    //     <section style={{ padding: '2rem 5%', lineHeight: '1.6' }}>
-    //       <div dangerouslySetInnerHTML={{ __html: post?.html || 'No Content' }} />
-    //     </section>
-    //   </article>
-    // </Layout>
+      <SEO title={post?.frontmatter?.title || 'Blog Post'} description={post?.excerpt || ''} />
+      <NavigationBar />
+      <article>
+        <header style={{
+          padding: '5rem 1rem',
+          textAlign: 'center',
+          backgroundImage: `url(${solarHouseImage})`, // Use the imported solar house image
+          backgroundSize: 'cover',
+          color: '#fff', // Assuming white text for a dark image
+          height: '50vh', // Adjust the height of your banner here
+        }}>
+          <h1>{post?.frontmatter?.title || 'Blog Title'}</h1>
+          <p>{post?.frontmatter?.date || 'Blog Date'}</p>
+        </header>
+        <section style={{
+          padding: '2rem 5%',
+          lineHeight: '1.6',
+          backgroundColor: '#f8f8f8', // A light background for the content
+          color: '#333', // Dark text for readability
+        }}>
+          <div dangerouslySetInnerHTML={{ __html: post?.html || 'No Content' }} />
+        </section>
+      </article>
+    </Layout>
   );
 };
+
 
 // ... the rest of your code remains the same
 
