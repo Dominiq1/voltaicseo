@@ -482,23 +482,6 @@ const HeroSection = () => {
 
 
 
-// const HeroSection = () => (
-//   <section style={heroSectionStyles}>
-//     <div style={overlayStyle}></div> {/* Overlay */}
-//     <div style={contentContainerStyle}> {/* Content container */}
-//     <h1 style={headingStyles}>Defend Your Home From Blackouts —</h1>
-//   <p style={subHeadingStyles}>Get Your Custom Energy Resilience plan today!</p>
- 
-//       <Link to="/quote" style={{ ...navigationLinkStyles, ...quoteButtonStyles }}>
-//         View Solar on my home
-//       </Link>
-
-
-
-      
-//     </div>
-//   </section>
-// );
 
 
 const Footer = () => (
