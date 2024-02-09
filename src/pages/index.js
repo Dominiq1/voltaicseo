@@ -380,22 +380,58 @@ const ContactSection = () => {
       const response = await fetch('/api/submitToCrm', {
         method: 'POST',
         body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
       });
-  
+    
+      // Read the response as text first
+      const text = await response.text();
+      console.log('Response body as text:', text);
+    
+      // Check if the response is OK before attempting to parse JSON
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-  
-      const responseBody = await response.json();
-      setFormSubmitted(true);
+    
+      let responseBody;
+      // Check if the text is not empty and is a valid JSON before parsing
+      if (text) {
+        try {
+          responseBody = JSON.parse(text);
+        } catch (parseError) {
+          console.error('Error parsing JSON:', parseError);
+          // Handle parsing error or set a default value/fallback for responseBody
+          responseBody = null; // Set to null or an appropriate fallback value
+        }
+      } else {
+        // Handle cases where the response text is empty
+        console.log('Response body is empty');
+        responseBody = null; // Set to null or an appropriate fallback value
+      }
+    
+      if (responseBody) {
+        setFormSubmitted(true);
+      } else {
+        // Handle cases where responseBody could not be set due to empty or invalid JSON
+        // This might involve setting an error state or message for the user
+      }
     } catch (error) {
       console.error('There was an error submitting the form:', error);
     } finally {
       setIsSubmitting(false);
     }
+    
+  
+    //   const responseBody = await response.json();
+    //   setFormSubmitted(true);
+    // } catch (error) {
+    //   console.error('There was an error submitting the form:', error);
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
+
+
+
+    
   };
   
   

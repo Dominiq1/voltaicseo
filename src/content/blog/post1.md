@@ -31,8 +31,3 @@ Adopting solar energy plays a crucial role in achieving energy independence. By 
 
 In conclusion, going solar offers numerous benefits, including environmental protection, financial savings, increased property value, and energy independence. With solar energy, we have the opportunity to create a cleaner, more sustainable world for ourselves and future generations.
 
-<!-- Your "content" goes here in the body, not in the frontmatter -->
-<div>
-  <h1>Why Go Solar?</h1>
-  <p>Exploring the compelling reasons and benefits behind the transition to solar energy.</p>
-</div>
