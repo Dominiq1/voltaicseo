@@ -12,7 +12,20 @@ import { Helmet } from 'react-helmet';
 
 
 
+// Styles for the images
+const imageStyles = {
+  width: '100%', // Full width
+  marginBottom: '1rem', // Adjust margin as needed
+};
 
+
+const responsiveImageStyles = `
+@media (max-width: 768px) {
+  .service-item img {
+    width: 30%; // Set the width to 30% of the screen width
+  }
+}
+`;
 // Define your base styles outside of the component
 const baseHeadingStyles = {
   fontSize: '2rem', // Adjust base font size as needed
@@ -64,64 +77,6 @@ const pageStyles = {
 }
 
 
-const heroSectionStyles = {
-  position: 'relative',
-  color: "#fff",
-  backgroundImage: `url(${solarHouseImage})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: 'flex-start', // Align items to the start (left)
-  textAlign: 'left', // Align text to the left
-  padding: '4rem 1rem', // Adjust padding as needed
-  justifyContent: "center",
-  width: '100%', // Full width
-  minHeight: '100vh', // Make sure it takes at least the full height of the viewport
-  zIndex: 1,
-};
-
-
-const contentContainerStyle = {
-  position: 'relative',
-  zIndex: 3,
-  maxWidth: '1200px', // Max width of the content, can be adjusted
-  width: '100%', // Full width of the content
-  paddingLeft: '1rem', // Consistent padding from the left side
-  paddingRight: '1rem', // Consistent padding from the right side
-  marginLeft: 'auto', // Center the container
-  marginRight: 'auto', // Center the container
-};
-
-// Overlay style to darken the background image
-const overlayStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  // backgroundColor: 'blue', // Darken the overlay
-  zIndex: 2, // Above the background image
-};
-// Style for the heading
-const headingStyles = {
-  fontSize: '1.5rem', // Adjust size as needed
-  fontWeight: 'bold',
-  // backgroundColor: 'green',
-  width:'70vw',
-  textAlign: 'center', 
-  // color:'red',
-  margin: '0.5rem 0', // Adjust spacing as needed
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Optional: Text shadow for better readability
-};
-
-// Style for the subheading
-const subHeadingStyles = {
-  fontSize: '1.5rem', // Adjust size as needed
-  margin: '0.5rem 0', // Adjust spacing as needed
-};
-
 
 
 const footerStyles = {
@@ -145,56 +100,101 @@ const serviceItemStyles = {
   padding: '1rem',
   boxSizing: 'border-box',
   backgroundColor: 'teal',
-  borderRadius:'20px',
-  marginTop: '1em' ,
-  color: 'white'
-
+  borderRadius: '20px',
+  marginTop: '1em',
+  color: 'white',
+  width: '75%', // Set width to 75% of the container
+  height: '30%', // Set height to 30% of the container
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
+// Style for the image within the service item
+const serviceItemImageStyles = {
+  width: '80%', // Adjust width as needed
+  height: 'auto', // Maintain aspect ratio
+};
 
 // Then, in your HeroSection component, you would use it
 
-// Input and Button Styles with Rounded Corners
+
+
+//// HERO SECTON STYLES 
+// Define your styles here
+const heroSectionStyles = {
+  position: "relative",
+  color: "#fff",
+  backgroundImage: `url(${solarHouseImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  textAlign: "center",
+  padding: "4rem 1rem",
+  width: "100%",
+  minHeight: "100vh",
+  zIndex: 1,
+};
+
+const overlayStyle = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  zIndex: 2,
+};
+
+const contentContainerStyle = {
+  position: "relative",
+  zIndex: 3,
+  maxWidth: "800px", // Adjusted max width
+  width: "100%",
+  margin: "0 auto",
+  padding: "0 1rem",
+};
+
 const inputStyles = {
-  width: '90%', // Take up most of the width, leave some margin
-  margin: '0.5rem 5%', 
+  width: "100%", // Adjusted width
+  margin: "0.5rem 0",
   padding: "0.5rem",
-  borderRadius: "20px", // Rounded corners for inputs
-  border: "1px solid #ccc", // Standard border color
- 
-}
+  borderRadius: "2px",
+  border: "1px solid #ccc",
+};
 
 const buttonStyles = {
-  width: '90%', // Take up most of the width, leave some margin
-  margin: '0.5rem 5%', // Center by adding equal left and right margin
+  width: "100%", // Adjusted width
+  margin: "0.5rem 0",
   padding: "0.5rem 1rem",
-  backgroundColor: "#00B4D8",
-  color: "#fff",
-  borderRadius: "20px", // Rounded corners for button
-  border: "none", // No border for button
-  cursor: "pointer", // Pointer cursor on hover
-}
 
-// Media query for mobile devices
+  backgroundColor: "#008ca8",
+  color: "#fff",
+  borderRadius: "2px",
+  border: "none",
+  cursor: "pointer",
+};
+
 const responsiveStyles = `
 @media (max-width: 768px) {
-  .hero-heading {
-    text-align: left;
-    width: 100%; // Full width
-    margin-left: 0; // Reset any left margin
-  }
+  .hero-heading,
   .hero-subheading {
-    text-align: left;
-    width: 100%; // Full width
-    margin-left: 0; // Reset any left margin
+    text-align: left; // Adjusted alignment for smaller screens
+    width: 100%;
+    margin-left: 0;
   }
   .hero-input,
   .hero-button {
-    width: 90%; // Adjust width as needed
-    margin: 0.5rem 5%; // Adjust margin for centering
+    width: 100%; // Adjusted width for smaller screens
+    margin: 0.5rem 0;
   }
 }
 `;
+
+////////////
 
 const GuaranteeSection = () => (
   <section style={guaranteeSectionStyles}>
@@ -259,64 +259,107 @@ const EnergyIndependenceSection = () => (
   </section>
 );
 
-const ServicesSection = () => (
+// Define an array of service objects
+const services = [
+  {
+    image: solarImage,
+    title: "SOLAR PANEL INSTALLATION",
+    description: "High-efficiency solar panels to power your home with clean, renewable energy."
+  },
+  {
+    image: hvacImage,
+    title: "HVAC SYSTEM INSTALLATION",
+    description: "High-efficiency solar panels to power your home with clean, renewable energy."
+  },
+  {
+    image: fanImage,
+    title: "WHOLE HOUSE FAN",
+    description: "High-efficiency solar panels to power your home with clean, renewable energy."
+  },
+  {
+    image: titleImage,
+    title: "TITLE 24 ROOF INSTALL",
+    description: "High-efficiency solar panels to power your home with clean, renewable energy."
+  }
+];
+
+const Solarreasons = [
+  {
+    image: solarImage,
+    title: "Clean Energy",
+    description: "Harness the power of the sun to generate clean and renewable energy for your home."
+  },
+  {
+    image: hvacImage,
+    title: "Energy Savings",
+    description: "Reduce your electricity bills by generating your own solar power and saving on utility costs."
+  },
+  {
+    image: titleImage,
+    title: "Energy Independence",
+    description: "Gain independence from the grid and power your home with sustainable energy solutions."
+  },
+  {
+    image: fanImage,
+    title: "Environmental Impact",
+    description: "Reduce your carbon footprint and contribute to a cleaner environment by using solar energy."
+  },
+ 
+];
+
+
+const WhySolarSection = () => (
   <section style={servicesSectionStyles}>
     <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-    <h1>Our Services</h1>
+      <h1>Why Solar?</h1>
       <h3>Renewable Energy Solutions For Your Whole Home</h3>
-      <p3>Voltaic offers modern, whole home or business solutions 
-        for energy independence. Solar power is the cornerstone of
-         their offerings; a renewable and green source of energy that
-          allows homeowners to be less dependent on traditional electricity
-           sources. And the best part? Solar systems are becoming more efficient 
-           and cost-effective every day! Invest in a Voltaic Solar system to 
-           ensure your home or business is equipped to stay ahead of
-            the changing energy landscape.</p3>
+      <p>Discover the benefits of solar energy and why it's the right choice for your home. Voltaic offers modern solutions for energy independence, powered by solar energy. Here are four reasons to go solar:</p>
       <div style={{
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-around", // This will handle spacing on all screen sizes
+        justifyContent: "space-around",
         alignItems: "flex-start",
       }}>
-        {/* Each service item */}
-        <div className="service-item" style={serviceItemStyles}>
-          <img src={solarImage} alt="Solar Panel Installation" style={{ width: "100%", marginBottom: "1rem" }} />
-          <h3>SOLAR PANNEL INSTALLATION</h3>
-          <p>High-efficiency solar panels to power your home with clean, renewable energy.</p>
-        </div>
-        {/* Repeat for other service items */}
-        <div className="service-item" style={serviceItemStyles}>
-          <img src={hvacImage} alt="Solar Panel Installation" style={{ width: "100%", marginBottom: "1rem" }} />
-          <h3>HVAC SYSTEM INSTALLATION</h3>
-          <p>High-efficiency solar panels to power your home with clean, renewable energy.</p>
-        </div>
-        {/* ... */}
-        <div className="service-item" style={serviceItemStyles}>
-          <img src={fanImage} alt="Solar Panel Installation" style={{ width: "100%", marginBottom: "1rem" }} />
-          <h3>WHOLE HOUSE FAN</h3>
-          <p>High-efficiency solar panels to power your home with clean, renewable energy.</p>
-        </div>
-        <div className="service-item" style={serviceItemStyles}>
-          <img src={titleImage} alt="Solar Panel Installation" style={{ width: "100%", marginBottom: "1rem" }} />
-          <h3>TITLE 24 ROOF INSTALL</h3>
-          <p>High-efficiency solar panels to power your home with clean, renewable energy.</p>
-        </div>
+        {/* Map over the Solarreasons array to generate reason items */}
+        {Solarreasons.map((reason, index) => (
+          <div key={index} className="service-item" style={serviceItemStyles}>
+            <img src={reason.image} alt={reason.title} style={serviceItemImageStyles} />
+            <h3>{reason.title}</h3>
+            <p>{reason.description}</p>
+          </div>
+        ))}
       </div>
     </div>
-    <style>
-      {`
-        @media (min-width: 768px) {
-          .service-item {
-            width: calc(25% - 2rem); // 4 items per row on desktop
-            margin: 1rem; // Add margin between items
-          }
-        }
-      `}
-    </style>
+  </section>)
+
+
+
+
+const ServicesSection = () => (
+  <section style={servicesSectionStyles}>
+    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <h1>Our Services </h1>
+      <h3>Renewable Energy Solutions For Your Whole Home</h3>
+      <p>Voltaic offers modern, whole home or business solutions for energy independence. Solar power is the cornerstone of their offerings; a renewable and green source of energy that allows homeowners to be less dependent on traditional electricity sources. And the best part? Solar systems are becoming more efficient and cost-effective every day! Invest in a Voltaic Solar system to ensure your home or business is equipped to stay ahead of the changing energy landscape.</p>
+      <div style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        alignItems: "flex-start",
+      }}>
+        {/* Map over the services array to generate service items */}
+        {services.map((service, index) => (
+  <div key={index} className="service-item" style={serviceItemStyles}>
+    <img src={service.image} alt={service.title} style={serviceItemImageStyles} />
+    <h3>{service.title}</h3>
+    <p>{service.description}</p>
+  </div>
+))}
+
+      </div>
+    </div>
   </section>
 );
-
-
 
 
 const TestimonialSection = () => {
@@ -362,6 +405,9 @@ const TestimonialSection = () => {
 // Updated and additional components based on the provided code structure
 // ... other imports and code ...
 
+
+
+
 const ContactSection = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -369,75 +415,38 @@ const ContactSection = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-  
+
     const formData = {
       name: event.target.elements.name.value,
-      email: event.target.elements.email.value,
-      homeSize: event.target.elements.homeSize.value,
+      phoneNumber: event.target.elements.phoneNumber.value,
+      utilityBillCost: event.target.elements.utilityBillCost.value,
     };
-  
 
-    
     try {
-      const response = await fetch('/api/submitToCrm', {
+      // Your form submission logic here
+      // Use formData to submit to your backend
+      console.log("Form Data:", formData);
+
+      // Example: Sending data to a Netlify function
+      const response = await fetch('/.netlify/functions/submitToCrm', {
         method: 'POST',
         body: JSON.stringify(formData),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
-    
-      // Read the response as text first
-      const text = await response.text();
-      console.log('Response body as text:', text);
-    
-      // Check if the response is OK before attempting to parse JSON
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-    
-      let responseBody;
-      // Check if the text is not empty and is a valid JSON before parsing
-      if (text) {
-        try {
-          responseBody = JSON.parse(text);
-        } catch (parseError) {
-          console.error('Error parsing JSON:', parseError);
-          // Handle parsing error or set a default value/fallback for responseBody
-          responseBody = null; // Set to null or an appropriate fallback value
-        }
-      } else {
-        // Handle cases where the response text is empty
-        console.log('Response body is empty');
-        responseBody = null; // Set to null or an appropriate fallback value
-      }
-    
-      if (responseBody) {
-        setFormSubmitted(true);
-      } else {
-        // Handle cases where responseBody could not be set due to empty or invalid JSON
-        // This might involve setting an error state or message for the user
-      }
+
+      setFormSubmitted(true);
     } catch (error) {
       console.error('There was an error submitting the form:', error);
     } finally {
       setIsSubmitting(false);
     }
-    
-  
-    //   const responseBody = await response.json();
-    //   setFormSubmitted(true);
-    // } catch (error) {
-    //   console.error('There was an error submitting the form:', error);
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
-
-
-
-    
   };
-  
-  
-
 
   // If the form has been submitted, display the success message
   if (formSubmitted) {
@@ -456,8 +465,13 @@ const ContactSection = () => {
       <p>Free, No Obligation</p>
       <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
         <input name="name" type="text" placeholder="Name" style={inputStyles} />
-        <input name="email" type="email" placeholder="Email*" required style={inputStyles} />
-        <input name="homeSize" type="text" placeholder="Home Size" style={inputStyles} />
+        <input name="phoneNumber" type="tel" placeholder="Phone Number" style={inputStyles} />
+        <select name="utilityBillCost" required style={inputStyles}>
+          <option value="">Select your utility bill cost</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
         <button type="submit" style={buttonStyles} disabled={isSubmitting}>
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
@@ -466,13 +480,226 @@ const ContactSection = () => {
   );
 };
 
-// ... other components and code ...
+
+// const ContactSection = () => {
+//   const [formSubmitted, setFormSubmitted] = useState(false);
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     setIsSubmitting(true);
+  
+//     const formData = {
+//       name: event.target.elements.name.value,
+//       email: event.target.elements.email.value,
+//       homeSize: event.target.elements.homeSize.value,
+//     };
+  
+
+    
+//     try {
+//       const response = await fetch('/api/submitToCrm', {
+//         method: 'POST',
+//         body: JSON.stringify(formData),
+//         headers: { 'Content-Type': 'application/json' },
+//       });
+    
+//       // Read the response as text first
+//       const text = await response.text();
+//       console.log('Response body as text:', text);
+    
+//       // Check if the response is OK before attempting to parse JSON
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+    
+//       let responseBody;
+//       // Check if the text is not empty and is a valid JSON before parsing
+//       if (text) {
+//         try {
+//           responseBody = JSON.parse(text);
+//         } catch (parseError) {
+//           console.error('Error parsing JSON:', parseError);
+//           // Handle parsing error or set a default value/fallback for responseBody
+//           responseBody = null; // Set to null or an appropriate fallback value
+//         }
+//       } else {
+//         // Handle cases where the response text is empty
+//         console.log('Response body is empty');
+//         responseBody = null; // Set to null or an appropriate fallback value
+//       }
+    
+//       if (responseBody) {
+//         setFormSubmitted(true);
+//       } else {
+//         // Handle cases where responseBody could not be set due to empty or invalid JSON
+//         // This might involve setting an error state or message for the user
+//       }
+//     } catch (error) {
+//       console.error('There was an error submitting the form:', error);
+//     } finally {
+//       setIsSubmitting(false);
+//     }
+    
+  
+//     //   const responseBody = await response.json();
+//     //   setFormSubmitted(true);
+//     // } catch (error) {
+//     //   console.error('There was an error submitting the form:', error);
+//     // } finally {
+//     //   setIsSubmitting(false);
+//     // }
+
+
+
+    
+//   };
+  
+  
+
+
+//   // If the form has been submitted, display the success message
+//   if (formSubmitted) {
+//     return (
+//       <div style={contactSectionStyles}>
+//         <h2>Thank you for your submission!</h2>
+//         <p>We will be in touch soon.</p>
+//       </div>
+//     );
+//   }
+
+//   // If the form hasn't been submitted, display the form
+//   return (
+//     <section style={contactSectionStyles}>
+//       <h2>Get A Quote Today</h2>
+//       <p>Free, No Obligation</p>
+//       <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
+//         <input name="name" type="text" placeholder="Name" style={inputStyles} />
+//         <input name="email" type="email" placeholder="Email*" required style={inputStyles} />
+//         <input name="homeSize" type="text" placeholder="Home Size" style={inputStyles} />
+//         <button type="submit" style={buttonStyles} disabled={isSubmitting}>
+//           {isSubmitting ? 'Submitting...' : 'Submit'}
+//         </button>
+//       </form>
+//     </section>
+//   );
+// };
 
 
 
 
 
 // You might need to define `chatInterfaceStyles` based on your design preferences.
+
+const EmailHeroSection = () => {
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [utilityBillCost, setUtilityBillCost] = useState("");
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Your form submission logic here
+      const formData = {
+        name,
+        phoneNumber,
+        utilityBillCost,
+      };
+
+      // Example: Sending data to a Netlify function
+      const response = await fetch('/.netlify/functions/submitToCrm', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('There was an error submitting the form:', error);
+    }
+  };
+
+  return (
+    <section style={heroSectionStyles}>
+      <style>{responsiveStyles}</style>
+      <div style={overlayStyle}></div>
+      <div style={contentContainerStyle}>
+        {formSubmitted ? (
+          <div>
+            <h2>Thank you for your interest!</h2>
+            <p>Our team will be reaching out to you shortly. In the meantime, check out our solar resources page to learn more about going solar!</p>
+            {/* Additional steps content button */}
+            <button className="hero-button" type="button" style={buttonStyles} onClick={() => setCurrentStep(3)}>
+              Next steps
+            </button>
+          </div>
+        ) : (
+          <>
+            {currentStep === 1 && (
+              <>
+                <h1 className="hero-heading">Defend Your Home From Blackouts</h1>
+                <p className="hero-subheading">Get Your Custom Energy Resilience plan today!</p>
+                <button className="hero-button" type="button" style={buttonStyles} onClick={() => setCurrentStep(2)}>
+                  Get My Report
+                </button>
+              </>
+            )}
+            {currentStep === 2 && (
+              <>
+                <h1 className="hero-heading">Enter Your Information</h1>
+                <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
+                  <input
+                    className="hero-input"
+                    type="text"
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    style={inputStyles}
+                  />
+                  <input
+                    className="hero-input"
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    required
+                    style={inputStyles}
+                  />
+                  <select
+                    className="hero-input"
+                    value={utilityBillCost}
+                    onChange={(e) => setUtilityBillCost(e.target.value)}
+                    required
+                    style={{ ...inputStyles, marginTop: '0.5rem' }}
+                  >
+                    <option value="">Select your utility bill cost</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                  </select>
+                  <button className="hero-button" type="submit" style={buttonStyles}>
+                    Complete
+                  </button>
+                </form>
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </section>
+  );
+};
+
 
 
 
@@ -593,11 +820,15 @@ const IndexPage = () => {
       <NavigationBar />
       {/* <NavigationBar/> */}
       {/* <ChatInterface/> */}
-      <HeroSection />
+
+      {/* Stella Hero section */}
+      {/* <HeroSection /> */}
+      <EmailHeroSection/>
 
     
       <GuaranteeSection />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
+      <WhySolarSection/>
       <EnergyIndependenceSection/>
       <TestimonialSection />
       <ContactSection />
