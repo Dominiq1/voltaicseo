@@ -803,21 +803,21 @@ const IndexPage = () => {
   }, []);
   return (
     <main style={pageStyles}>
-      <Helmet>
+     <Helmet>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Home Page</title>
       <style>{`
-    html, body {
-      margin: 0;
-      padding: 0;
-      /* ... other styles ... */
-    }
-    *, *::before, *::after {
-      box-sizing: border-box;
-      /* ... other styles ... */
-    }
-  `}</style>
-      </Helmet>
+        html, body {
+          margin: 0;
+          padding: 0;
+          /* Add any other global styles here */
+        }
+        *, *::before, *::after {
+          box-sizing: border-box;
+          /* Add any other global styles here */
+        }
+      `}</style>
+    </Helmet>
       <NavigationBar />
       {/* <NavigationBar/> */}
       {/* <ChatInterface/> */}

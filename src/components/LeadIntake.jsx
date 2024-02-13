@@ -428,6 +428,7 @@ const inputStyles = {
   padding: '0.5rem',
   borderRadius: '2px',
   border: '1px solid #ccc',
+  fontSize: '16px', // Set font size to 16px to prevent zooming on iOS
 };
 
 const buttonStyles = {
