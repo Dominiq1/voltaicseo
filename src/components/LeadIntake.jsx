@@ -2,6 +2,81 @@ import React, { useState } from 'react';
 import solarHouseImage from '../images/solar.jpg'; // Adjust the path as necessary
 import '../styles/leadIntake.css'; // Adjust the path based on your file structure
 
+
+
+
+
+ ///= ================ = = = = = == = ==   = = 
+
+
+
+
+///// POST SUBMISSION STYLES
+
+
+
+
+ ///= ================ = = = = = == = ==   = = 
+ const postSubmissionContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start', // Align items to the start (left)
+  padding: '2rem',
+  backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent background
+  color: 'white',
+  zIndex: 4,
+  position: 'relative', // To layer on top of the hero image
+  borderRadius: '10px'
+};
+
+const postSubmissionTitleStyle = {
+  fontSize: '1.5rem', // Adjust as needed
+  fontWeight: 'bold',
+  marginBottom: '1rem',
+};
+
+const postSubmissionSubtitleStyle = {
+  fontSize: '1rem', // Adjust as needed
+  marginBottom: '2rem',
+};
+
+const stepListStyle = {
+  listStyle: 'none',
+  padding: 0,
+  width: '100%', // Take the full width of the container
+};
+
+const stepItemStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  marginBottom: '1rem',
+};
+
+const stepIconStyle = {
+  fontSize: '1.25rem', // Size of the icon
+  width: '25px', // Width of the icon container for alignment
+  marginRight: '0.5rem',
+  color: '#50c1f7', // Color of the icons
+};
+
+const stepTextStyle = {
+  fontSize: '1rem', // Adjust as needed
+};
+
+
+
+ ///= ================ = = = = = == = ==   = = 
+
+
+
+//    HERO STYLES
+
+
+
+
+ ///= ================ = = = = = == = ==   = = 
+
+
 const heroSectionStyles = {
   display: 'flex',
   flexDirection: 'column',
@@ -359,7 +434,53 @@ const LeadIntakeHero = () => {
 
   const renderStepContent = () => {
     if (formSubmitted) {
-      return <h2>Good news, you're a great fit!</h2>;
+      return (
+        <div style={postSubmissionContainerStyle}>
+        <h1 style={postSubmissionTitleStyle}>What's next</h1>
+        <p style={postSubmissionSubtitleStyle}>
+          We are here as your expert guide every step of the way.
+        </p>
+        <ul style={stepListStyle}>
+          <li style={stepItemStyle}>
+            <span style={stepIconStyle}>✓</span>
+            <span style={stepTextStyle}>Submit your Details</span>
+          </li>
+          {/* Repeat for other steps */}
+          <li style={stepItemStyle}>
+            <span style={stepIconStyle}>✓</span>
+            <span style={stepTextStyle}>Our service rep will call you</span>
+          </li>
+           {/* Repeat for other steps */}
+           <li style={stepItemStyle}>
+            <span style={stepIconStyle}>.</span>
+            <span style={stepTextStyle}>Site Survey</span>
+          </li>
+
+           {/* Repeat for other steps */}
+           <li style={stepItemStyle}>
+            <span style={stepIconStyle}>.</span>
+            <span style={stepTextStyle}>System Design & Permitting</span>
+          </li>
+
+
+           {/* Repeat for other steps */}
+           <li style={stepItemStyle}>
+            <span style={stepIconStyle}>.</span>
+            <span style={stepTextStyle}>Installation Design & Inspection</span>
+          </li>
+
+
+           {/* Repeat for other steps */}
+           <li style={stepItemStyle}>
+            <span style={stepIconStyle}>.</span>
+            <span style={stepTextStyle}>Power on</span>
+          </li>
+        </ul>
+      </div>
+  
+      )
+      
+     
     } else {
       return (
         <StepForm
