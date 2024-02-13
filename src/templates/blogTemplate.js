@@ -6,53 +6,12 @@ import SEO from '../components/seo';
 import { Helmet } from 'react-helmet';
 import solarHouseImage from "../images/solar.jpg"
 
-//Doesnt work: 
 
-// ... other imports remain the same
-
-// const BlogPostTemplate = ({ data }) => {
-//   const { markdownRemark: post } = data;
-
-//   // Check if the post and the featured image exist
-//   const featuredImage = post?.frontmatter?.featuredImage?.childImageSharp?.fluid?.src;
-
-//   return (
-//     <Layout>
-//       <SEO title={post?.frontmatter?.title || 'Blog Post'} description={post?.excerpt || ''} />
-//       <NavigationBar />
-//       <article>
-//         <header style={{ 
-//           padding: '5rem 1rem', 
-//           textAlign: 'center',
-//           backgroundImage: featuredImage ? `url(${featuredImage})` : undefined,
-//           backgroundSize: 'cover',
-//         }}>
-//           {!featuredImage && <h1>{post?.frontmatter?.title || 'No Title'}</h1>}
-//           <p>{post?.frontmatter?.date || 'No Date'}</p>
-//         </header>
-//         <section style={{ padding: '2rem 5%', lineHeight: '1.6' }}>
-//           <div dangerouslySetInnerHTML={{ __html: post?.html || 'No Content' }} />
-//         </section>
-//       </article>
-//     </Layout>
-//   );
-// };
-
-// ... other imports remain the same
+// ... (other imports remain the same)
 
 const BlogPostTemplate = ({ data }) => {
-
-
-
-
   const { markdownRemark: post } = data;
-
-  // Check if the post and the featured image exist
   const featuredImage = post?.frontmatter?.featuredImage?.childImageSharp?.fluid?.src;
-
-
-
-
 
   return (
     <Layout isFullWidth={true}>
@@ -62,19 +21,29 @@ const BlogPostTemplate = ({ data }) => {
         <header style={{
           padding: '5rem 1rem',
           textAlign: 'center',
-          backgroundImage: `url(${solarHouseImage})`, // Use the imported solar house image
+          backgroundImage: `url(${featuredImage || solarHouseImage})`,
           backgroundSize: 'cover',
-          color: '#fff', // Assuming white text for a dark image
-          height: '50vh', // Adjust the height of your banner here
+          color: '#fff',
+          height: '50vh',
+          fontFamily: "'Open Sans', sans-serif", // Apply the same font family here
         }}>
-          <h1>{post?.frontmatter?.title || 'Blog Title'}</h1>
-          <p>{post?.frontmatter?.date || 'Blog Date'}</p>
+          <h1 style={{
+            fontSize: '2.5rem',
+            marginBottom: '0.5rem'
+          }}>{post?.frontmatter?.title || 'Blog Title'}</h1>
+          <p style={{
+            fontSize: '1.25rem',
+            color: '#ddd'
+          }}>{post?.frontmatter?.date || 'Blog Date'}</p>
         </header>
         <section style={{
           padding: '2rem 5%',
-          lineHeight: '1.6',
-          backgroundColor: '#f8f8f8', // A light background for the content
-          color: '#333', // Dark text for readability
+          lineHeight: '1.75',
+          backgroundColor: '#f8f8f8',
+          color: '#333',
+          maxWidth: '800px',
+          margin: '0 auto',
+          fontFamily: "'Open Sans', sans-serif", // This ensures content uses "Open Sans"
         }}>
           <div dangerouslySetInnerHTML={{ __html: post?.html || 'No Content' }} />
         </section>
@@ -84,17 +53,6 @@ const BlogPostTemplate = ({ data }) => {
 };
 
 
-// ... the rest of your code remains the same
-
-
-// ... the rest of your code remains the same
-
-
-
-//works
-// const BlogPostTemplate = () => {
-//   return <div>Blog Post #</div>;
-// };
 
 export default BlogPostTemplate;
 export const pageQuery = graphql`

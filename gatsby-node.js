@@ -110,6 +110,20 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+
+   // Create blog home page
+   createPage({
+    path: `/resources`,
+    component: path.resolve(`./src/templates/Resources.js`),
+    context: {},
+  });
+
+
+
+
+
+  
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
