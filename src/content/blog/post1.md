@@ -1,5 +1,5 @@
 ---
-title: "Maximize Benefits: Why Go Solar Now?"
+title: "why-go-solar"
 subTitle: "Comprehensive Guide to Solar Energy Advantages"
 description: "Unlock solar energy benefits: cost savings, increased home value, and environmental protection."
 keywords: ["solar energy benefits", "renewable energy", "solar power savings", "sustainable living", "energy independence"]
