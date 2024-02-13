@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Montclair",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "CA",
+				"name": "California"
+			},
+			"timezone": "America/Los_Angeles",
+			"latitude": 34.0718,
+			"longitude": -117.6973
+		},
+		"timestamp": 1707785371824
+	}
+}
