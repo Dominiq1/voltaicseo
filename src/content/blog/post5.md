@@ -4,7 +4,7 @@ subTitle: "Financing Home Solar"
 description: "Learn about financing your solar today."
 keywords: ["solar savings", "solar energy savigns", "renewable energy savings", "grid stability", "solar bill"]
 date: "2024-02-10"
-slug: "/solar-power-cities-challenges"
+slug: "/financing-solar"
 featuredImage: "/images/urbanSolar.jpg"
 category: "solar"
 

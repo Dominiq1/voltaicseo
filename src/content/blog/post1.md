@@ -5,7 +5,7 @@ description: "Unlock solar energy benefits: cost savings, increased home value, 
 keywords: ["solar energy benefits", "renewable energy", "solar power savings", "sustainable living", "energy independence"]
 
 date: "2023-02-09"
-slug: "/maximize-solar-benefits"
+slug: "/why-go-solar"
 featuredImage: "/images/solarPanelWorker.jpg"
 category: "solar"
 
