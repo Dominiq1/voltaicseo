@@ -1,7 +1,7 @@
 ---
 title: "The Impact of Solar Farms on Local Ecosystems"
 date: "2024-02-10"
-slug: "/impact-solar-farms-ecosystems"
+slug: "/solar-impact"
 featuredImage: "/images/solarFarmEcosystem.jpg"
 ---
 
