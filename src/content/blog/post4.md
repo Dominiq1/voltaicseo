@@ -1,8 +1,13 @@
 ---
-title: "Harnessing Solar Power in Urban Areas: Challenges and Opportunities"
+title: "Solar Power in Cities: Overcoming Urban Energy Challenges"
+subTitle: "Illuminating Urban Spaces with Solar"
+description: "Explore how urban areas can harness solar power despite space constraints, featuring innovative solutions, policy roles, and grid integration benefits."
+keywords: ["urban solar power", "solar energy solutions", "renewable energy policy", "grid stability", "solar innovation"]
 date: "2024-02-10"
-slug: "/solar-power-urban-challenges"
+slug: "/solar-power-cities-challenges"
 featuredImage: "/images/urbanSolar.jpg"
+category: "solar"
+
 ---
 
 # Harnessing Solar Power in Urban Areas: Challenges and Opportunities

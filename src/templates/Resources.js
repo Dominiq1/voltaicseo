@@ -1,79 +1,84 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
-import NavigationBar from '../components/NavigationBar';
 import SEO from '../components/seo';
-import defaultImage from "../images/solar.jpg"; // Import a default image
-
-// Define a common font style
-const commonFontStyle = {
-  fontFamily: "'Open Sans', sans-serif",
-};
-
-// Here we define the style for the title, you might have this in a separate CSS file
-const titleStyle = {
-  fontSize: '1rem', // Adjust font size as needed
-  lineHeight: '1.2', // Adjust line height as needed
-  margin: '0.5rem 0',
-  minHeight: '2.4rem', // Example for two lines of text
-  maxHeight: '4.8rem', // Example for four lines of text
-  overflow: 'hidden', // Hide overflow
-  textOverflow: 'ellipsis', // Add ellipsis to overflow
-  display: '-webkit-box',
-  WebkitLineClamp: 3, // Limit to three lines
-  WebkitBoxOrient: 'vertical',
-};
+import Accordion from '../components/Accordion'; // Ensure this component is prepared to handle the collapsible functionality
+import solarHouseImage from "../images/solar.jpg";
 
 const Resources = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges;
-  // Separate the most recent post from the rest
-  const latestPost = posts[0];
-  const otherPosts = posts.slice(1);
+  const categories = ["solar"];
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  // Organize posts by category
+  const postsByCategory = categories.reduce((acc, category) => {
+    acc[category] = data.allMarkdownRemark.edges.filter(({ node }) => 
+      node.frontmatter.category.toLowerCase() === category.toLowerCase()
+    );
+    return acc;
+  }, {});
+
+  useEffect(() => {
+    // Set the selectedPost state to the latest post
+    if (data.allMarkdownRemark.edges.length > 0) {
+      setSelectedPost(data.allMarkdownRemark.edges[0].node);
+    }
+  }, [data.allMarkdownRemark.edges]); // Dependency array ensures this effect only runs once
+
+  const toggleCategory = category => {
+    setActiveCategory(category === activeCategory ? null : category);
+  };
+
+  const handlePostClick = post => {
+    setSelectedPost(post);
+  };
+
+  const displayTitle = selectedPost ? selectedPost.frontmatter.title : "";
+  const seoDescription = selectedPost ? selectedPost.frontmatter.description : "";
+  const seoKeywords = selectedPost ? selectedPost.frontmatter.keywords.join(", ") : "";
+
+  const readMoreLink = selectedPost ? selectedPost.fields.slug : "";
 
   return (
     <Layout isFullWidth={true}>
-      <SEO title="Blog Home" />
-      <NavigationBar />
-
-      {/* Latest post featured at the top */}
-      {latestPost && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem', marginBottom: '2rem' }}>
-          <Link to={latestPost.node.fields.slug} style={{ textDecoration: 'none' }}>
-            <div style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
-              <img src={latestPost.node.frontmatter.featuredImage?.childImageSharp?.fluid?.src || defaultImage} alt={latestPost.node.frontmatter.title || 'Default Image'} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
-              <div style={{ padding: '1rem', ...commonFontStyle }}>
-                <h2 style={{ ...titleStyle, fontSize: '1.5rem' }}>{latestPost.node.frontmatter.title}</h2>
-                <time>{latestPost.node.frontmatter.date}</time>
-              </div>
-            </div>
-          </Link>
-        </div>
-      )}
-
-      {/* Grid for other posts */}
-      <div style={{
-        ...commonFontStyle,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-        gap: '1rem',
-        '@media (max-width: 767px)': {
-          gridTemplateColumns: 'repeat(2, 1fr)',
-        },
-      }}>
-        {otherPosts.map(({ node }) => {
-          const imageUrl = node.frontmatter.featuredImage?.childImageSharp?.fluid?.src || defaultImage;
-          return (
-            <div key={node.fields.slug} style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
-              <Link to={node.fields.slug} style={{ textDecoration: 'none' }}>
-                <img src={imageUrl} alt={node.frontmatter.title || 'Default Image'} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                <div style={{ padding: '0.5rem', ...commonFontStyle }}>
-                  <h2 style={{ ...titleStyle }}>{node.frontmatter.title}</h2>
-                  <time>{node.frontmatter.date}</time>
+      <SEO title="Resources" description={seoDescription} keywords={seoKeywords} />
+      <div className="resources-container" style={{ padding: '20px' }}>
+        <img src={solarHouseImage} alt="Solar House" style={{ width: '100%', maxHeight: '400px', objectFit: 'cover', marginBottom: '20px' }} />
+        <h1 style={{ paddingBottom: '10px' }}>{displayTitle}</h1>
+        <Link to={readMoreLink}>
+          <button style={{
+            height: '3em', 
+            width: 'calc(100% - 1rem)', 
+            backgroundColor: 'black', 
+            color: 'white', 
+            fontWeight: 'bold', 
+            borderRadius: '10px', 
+            marginBottom: '20px'
+          }}>
+            Read more →
+          </button>
+        </Link>
+        {/* Rest of the component */}
+        <div className="accordion-container" style={{ 
+          paddingTop: '20px',
+          maxHeight: '500px', // Set a fixed max height
+          overflowY: 'auto' // Enable vertical scrolling
+        }}> 
+          {categories.map(category => (
+            <Accordion 
+              key={category} 
+              title={category}
+              isActive={activeCategory === category}
+              onClick={() => toggleCategory(category)}
+            >
+              {activeCategory === category && postsByCategory[category].map(({ node }) => (
+                <div onClick={() => handlePostClick(node)} key={node.id} className="post-link" style={{ padding: '10px 0' }}>
+                  <h2>{node.frontmatter.title}</h2>
                 </div>
-              </Link>
-            </div>
-          );
-        })}
+              ))}
+            </Accordion>
+          ))}
+        </div>
       </div>
     </Layout>
   );
@@ -86,20 +91,18 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          id
           fields {
             slug
           }
           frontmatter {
             title
+            description
+            keywords
             date(formatString: "MMMM DD, YYYY")
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  src
-                }
-              }
-            }
+            category
           }
+          excerpt
         }
       }
     }

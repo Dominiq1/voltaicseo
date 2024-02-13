@@ -1,8 +1,13 @@
 ---
 title: "Integrating Solar Energy with Smart Homes"
+subTitle: "Smart Technology Meets Solar Power"
+description: "Explore the fusion of solar energy and smart homes for enhanced efficiency and sustainability. Learn about solar-powered devices and smart management systems."
+keywords: ["solar energy", "smart homes", "energy efficiency", "solar-powered devices", "home automation"]
 date: "2024-02-10"
 slug: "/solar-energy-smart-homes"
 featuredImage: "/images/smartHomeSolar.jpg"
+category: "solar"
+
 ---
 
 # Integrating Solar Energy with Smart Homes

@@ -1,8 +1,13 @@
 ---
-title: "Advancements in Solar Energy Storage Solutions"
+title: "Next-Gen Solar Storage: Revolutionizing Renewable Energy"
+subTitle: "Empowering the Future with Solar Storage"
+description: "Explore the breakthroughs in solar energy storage solutions, from high-capacity batteries to cutting-edge technologies, shaping a sustainable power future."
+keywords: ["solar energy storage", "renewable energy", "battery technology", "solar power", "energy innovation"]
 date: "2024-02-10"
-slug: "/advancements-solar-energy-storage"
+slug: "/next-gen-solar-storage"
 featuredImage: "/images/solarEnergyStorage.jpg"
+category: "solar"
+
 ---
 
 # Advancements in Solar Energy Storage Solutions

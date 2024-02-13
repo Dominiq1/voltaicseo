@@ -1,8 +1,13 @@
 ---
-title: "The Impact of Solar Farms on Local Ecosystems"
+title: "Eco-Friendly Energy: Solar Farms' Role in Ecosystems"
+subTitle: "Balancing Renewables and Nature"
+description: "Discover how solar farms can coexist with and benefit local ecosystems, enhancing biodiversity and minimizing land use conflicts."
+keywords: ["solar farms", "ecosystems", "renewable energy", "biodiversity", "land use"]
 date: "2024-02-10"
-slug: "/solar-impact"
+slug: "/eco-friendly-solar-impact"
 featuredImage: "/images/solarFarmEcosystem.jpg"
+category: "solar"
+
 ---
 
 # The Impact of Solar Farms on Local Ecosystems

@@ -1,8 +1,13 @@
 ---
-title: "Financing Solar Projects: A Guide for Homeowners and Businesses"
+title: "Solar Power in Cities: Overcoming Urban Energy Challenges"
+subTitle: "Illuminating Urban Spaces with Solar"
+description: "Explore how urban areas can harness solar power despite space constraints, featuring innovative solutions, policy roles, and grid integration benefits."
+keywords: ["urban solar power", "solar energy solutions", "renewable energy policy", "grid stability", "solar innovation"]
 date: "2024-02-10"
-slug: "/financing-solar"
-featuredImage: "/images/solarFinancing.jpg"
+slug: "/solar-power-cities-challenges"
+featuredImage: "/images/urbanSolar.jpg"
+category: "solar"
+
 ---
 
 # Financing Solar Projects: A Guide for Homeowners and Businesses

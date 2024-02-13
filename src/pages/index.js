@@ -9,6 +9,9 @@ import solarImage from "../images/solar.png"
 import logo from "../images/voltaiclogo.png"
 import NavigationBar from "../components/NavigationBar"
 import { Helmet } from 'react-helmet';
+// index.js or App.js
+
+import '../styles/global.css'
 
 //Component Imports: 
 import LeadIntakeHero from '../components/LeadIntake'
@@ -587,119 +590,6 @@ const ContactSection = () => {
 // };
 
 
-
-
-
-// You might need to define `chatInterfaceStyles` based on your design preferences.
-
-// const LeadIntakeHero = () => {
-//   const [name, setName] = useState("");
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [utilityBillCost, setUtilityBillCost] = useState("");
-//   const [currentStep, setCurrentStep] = useState(1);
-//   const [formSubmitted, setFormSubmitted] = useState(false);
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-
-//     try {
-//       // Your form submission logic here
-//       const formData = {
-//         name,
-//         phoneNumber,
-//         utilityBillCost,
-//       };
-
-//       // Example: Sending data to a Netlify function
-//       const response = await fetch('/.netlify/functions/submitToCrm', {
-//         method: 'POST',
-//         body: JSON.stringify(formData),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-
-//       setFormSubmitted(true);
-//     } catch (error) {
-//       console.error('There was an error submitting the form:', error);
-//     }
-//   };
-
-//   return (
-//     <section style={heroSectionStyles}>
-//       <style>{responsiveStyles}</style>
-//       <div style={overlayStyle}></div>
-//       <div style={contentContainerStyle}>
-//         {formSubmitted ? (
-//           <div>
-//             <h2>Thank you for your interest!</h2>
-//             <p>Our team will be reaching out to you shortly. In the meantime, check out our solar resources page to learn more about going solar!</p>
-//             {/* Additional steps content button */}
-//             <button className="hero-button" type="button" style={buttonStyles} onClick={() => setCurrentStep(3)}>
-//               Next steps
-//             </button>
-//           </div>
-//         ) : (
-//           <>
-//             {currentStep === 1 && (
-//               <>
-//                 <h1 className="hero-heading">Defend Your Home From Blackouts</h1>
-//                 <p className="hero-subheading">Get Your Custom Energy Resilience plan today!</p>
-//                 <button className="hero-button" type="button" style={buttonStyles} onClick={() => setCurrentStep(2)}>
-//                   Get My Report
-//                 </button>
-//               </>
-//             )}
-//             {currentStep === 2 && (
-//               <>
-//                 <h1 className="hero-heading">Enter Your Information</h1>
-//                 <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
-//                   <input
-//                     className="hero-input"
-//                     type="text"
-//                     placeholder="Enter your name"
-//                     value={name}
-//                     onChange={(e) => setName(e.target.value)}
-//                     required
-//                     style={inputStyles}
-//                   />
-//                   <input
-//                     className="hero-input"
-//                     type="tel"
-//                     placeholder="Enter your phone number"
-//                     value={phoneNumber}
-//                     onChange={(e) => setPhoneNumber(e.target.value)}
-//                     required
-//                     style={inputStyles}
-//                   />
-//                   <select
-//                     className="hero-input"
-//                     value={utilityBillCost}
-//                     onChange={(e) => setUtilityBillCost(e.target.value)}
-//                     required
-//                     style={{ ...inputStyles, marginTop: '0.5rem' }}
-//                   >
-//                     <option value="">Select your utility bill cost</option>
-//                     <option value="Low">Low</option>
-//                     <option value="Medium">Medium</option>
-//                     <option value="High">High</option>
-//                   </select>
-//                   <button className="hero-button" type="submit" style={buttonStyles}>
-//                     Complete
-//                   </button>
-//                 </form>
-//               </>
-//             )}
-//           </>
-//         )}
-//       </div>
-//     </section>
-//   );
-// };
 
 
 
