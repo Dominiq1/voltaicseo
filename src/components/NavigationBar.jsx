@@ -75,9 +75,15 @@ const NavigationBar = () => {
   return (
     <nav style={navigationBarStyles}>
       <img src={logo} alt="Company Logo" style={{ height: '3em' }} />
-      <button onClick={toggleMenu} style={menuButtonStyles}>
-        &#9776; {/* Unicode character for hamburger menu */}
-      </button>
+     
+     
+      {/* Hamburger unicode :  <button onClick={toggleMenu} style={menuButtonStyles}>
+        &#9776; 
+      </button> */}
+
+
+
+      
       <div style={isMenuOpen ? menuOpenStyles : menuClosedStyles}>
         <button onClick={() => setMenuOpen(false)} style={closeButtonStyles}>&times;</button>
         <Link to="/" onClick={() => setMenuOpen(false)} style={navigationLinkStyles}>Home</Link>

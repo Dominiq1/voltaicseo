@@ -7,3 +7,16 @@ body {
   padding: 0;
   /* Any other global styles */
 }
+
+
+
+input {
+    font-size: 18px; /* Larger font size */
+    padding: 15px 20px; /* Larger padding */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ccc; /* Custom border */
+    width: 100%; /* Full width */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin-bottom: 20px; /* Space between inputs */
+  }
+  

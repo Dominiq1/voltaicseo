@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import solarHouseImage from '../images/solar.jpg'; // Adjust the path as necessary
 import '../styles/leadIntake.css'; // Adjust the path based on your file structure
 
+import '../styles/global.css'
 
 
 
@@ -162,6 +163,8 @@ const buttonStyles = {
   fontSize: '1rem',
   textAlign: 'center',
   fontWeight: 'Bold'
+
+
 };
 
 const centeredContentStyle = {
@@ -234,10 +237,11 @@ const StepForm = ({
     case 1:
       return (
         <div style={centeredContentStyle}>
-        <div style={textContentStyle}>
-          <h1 style={headlineStyle}>Empower Your Home Against Blackouts</h1>
-          <p style={subQuestionStyle}>Join the movement towards energy independence.</p>
-          <p style={callToActionStyle}>Start your journey to a resilient and sustainable future with solar power.</p>
+      
+<div style={textContentStyle}>
+          <h1 style={headlineStyle}>Enhance Home Resilience During Power Interruptions</h1>
+          {/* <p style={subQuestionStyle}>Explore the path to energy self-sufficiency.</p> */}
+          <p style={callToActionStyle}>Initiate your transition to a durable and eco-friendly future through solar energy.</p>
         </div>
         <div style={buttonContainerStyle}>
           <button style={buttonStyles} onClick={goToNextStep(2)}>
