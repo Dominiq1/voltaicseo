@@ -826,13 +826,13 @@ const IndexPage = () => {
       {/* <HeroSection /> */}
       <LeadIntakeHero/>
 
-    
-      <GuaranteeSection />
+{/*     
+      <GuaranteeSection /> */}
       {/* <ServicesSection /> */}
-      <WhySolarSection/>
+      {/* <WhySolarSection/>
       <EnergyIndependenceSection/>
       <TestimonialSection />
-      <ContactSection />
+      <ContactSection /> */}
       {/* Other sections can be added here */}
       {/* Additional content sections would go here */}
       <Footer />
