@@ -1,7 +1,7 @@
 ---
 title: "Financing Solar Projects: A Guide for Homeowners and Businesses"
 date: "2024-02-10"
-slug: "/financing-solar-projects"
+slug: "/financing-solar"
 featuredImage: "/images/solarFinancing.jpg"
 ---
 
