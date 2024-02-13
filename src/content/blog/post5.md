@@ -1,5 +1,5 @@
 ---
-title: "financing-solar
+title: "financing-solar"
 subTitle: "Financing Home Solar"
 description: "Learn about financing your solar today."
 keywords: ["solar savings", "solar energy savigns", "renewable energy savings", "grid stability", "solar bill"]
