@@ -148,7 +148,7 @@ const textContentStyle = {
 
 
 const buttonStyles = {
-  width: 'calc(100% - 2rem)',
+  width: 'calc(100% - 1rem)',
   maxWidth: '500px',
   height: '50px',
   margin: '1rem auto',
@@ -161,6 +161,7 @@ const buttonStyles = {
   display: 'block',
   fontSize: '1rem',
   textAlign: 'center',
+  fontWeight: 'Bold'
 };
 
 const centeredContentStyle = {
