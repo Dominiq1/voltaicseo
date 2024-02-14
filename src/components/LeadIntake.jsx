@@ -1,21 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef , useEffect} from 'react';
 import solarHouseImage from '../images/solar.jpg'; // Adjust the path as necessary
 import '../styles/leadIntake.css'; // Adjust the path based on your file structure
-
 import '../styles/global.css'
 
-
-
-
- ///= ================ = = = = = == = ==   = = 
-
-
-
-
 ///// POST SUBMISSION STYLES
-
-
-
 
  ///= ================ = = = = = == = ==   = = 
  const postSubmissionContainerStyle = {
@@ -193,12 +181,144 @@ const formContainerStyle = {
 const StepForm = ({
   step,
   onNext,
-  onChange,
+
   onFormSubmit,
   formData,
   validateInput,
   validationErrors,
+  handleInputChange
 }) => {
+
+
+
+   ///============== INPUT FIELD ================
+
+ const shakeStyle = {
+  animation: 'shake 0.5s', // Example, define a CSS keyframe animation named shake
+  animationIterationCount: 'infinite',
+};
+
+
+
+// Updated InputField component with focus management
+// Adjusted InputField component to handle both input and select types
+// Adjusted InputField component to handle both input and select types
+const InputField = ({
+  label,
+  name,
+  type,
+  options, // New prop for select options
+  placeholder,
+  value,
+  onChange,
+  className,
+  required,
+}) => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
+  const baseInputStyle = {
+    height: '50px',
+    width: '100%',
+    margin: '10px 0',
+    padding: '0 20px',
+    fontSize: '16px',
+    border: '1px solid #ccc',
+    borderRadius: '30px',
+    boxSizing: 'border-box',
+  };
+
+  // Render a select element if options are provided
+  if (type === 'select' && options) {
+    return (
+      <div>
+        {label && <label htmlFor={name}>{label}</label>}
+        <select
+          ref={inputRef}
+          name={name}
+          id={name}
+          value={value}
+          onChange={onChange}
+          required={required}
+          style={baseInputStyle}
+        >
+          {options.map(option => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+    );
+  }
+
+  // Default to rendering an input element
+  return (
+    <div>
+      {label && <label htmlFor={name}>{label}</label>}
+      <input
+        ref={inputRef}
+        type={type}
+        name={name}
+        id={name}
+        className={className}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
+        style={baseInputStyle}
+      />
+    </div>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+// InputField component
+// const InputField = ({ label, name, type , placeholder, value, onChange, className, required }) => {
+//   // Define the base styles for the input fields
+//   const baseInputStyle = {
+//     height: '50px', // Larger height for touch friendliness
+//     width: '100%', // Full width to match the container
+//     margin: '10px 0', // Margin for spacing around the input
+//     padding: '0 20px', // Padding inside the input
+//     fontSize: '16px', // Font size similar to the image
+//     border: '1px solid #ccc', // Light grey border
+//     borderRadius: '30px', // Rounded corners like the image
+//     boxSizing: 'border-box', // Ensures padding doesn't affect the width
+//   };
+
+//   // Merge base styles with shake effect if className is provided
+//   const inputStyle = className ? {...baseInputStyle, ...shakeStyle} : baseInputStyle;
+
+//   return (
+//     <div>
+//       {label && <label htmlFor={name} style={{ display: 'block' }}>{label}</label>}
+//       <input
+//         type={type}
+//         name={name}
+//      //   id={name}
+//         placeholder={placeholder}
+//         value={value}
+//         onChange={onChange}
+//       //  required={required}
+//         className={className} // Apply the 'shake' class if there's a validation error
+//       //  style={inputStyle}
+//       />
+//     </div>
+//   );
+// };
+
   const goToNextStep = (newStep) => () => {
     let isValid = true;
   
@@ -254,61 +374,73 @@ const StepForm = ({
     case 2:
       return (
         <div style={formContainerStyle}>
-         <h2 style={headlineStyle}>Home Ownership</h2>
-         <p style={subQuestionStyle}>Do you own your own home?</p>
-          
-          <select
-          value={formData.homeOwnership}
-          onChange={(e) => onChange('homeOwnership', e.target.value)}
-          style={inputStyles}
-        >
-  <option value="">Select Home Ownership</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-
+          <h2 style={headlineStyle}>Home Ownership</h2>
+          <p style={subQuestionStyle}>Do you own your own home?</p>
+          <InputField
+            type="select"
+            name="homeOwnership"
+            
+            value={formData.homeOwnership}
+            onChange={(e) => handleInputChange('homeOwnership', e.target.value)}
+            options={[
+              { value: '', label: 'Select Home Ownership' },
+              { value: 'Yes', label: 'Yes' },
+              { value: 'No', label: 'No' }
+            ]}
+            required={true}
+          />
           <button style={buttonStyles} onClick={goToNextStep(3)}>Next</button>
-       
-       
         </div>
       );
     // Step 3: Average electric bill
     case 3:
-      return (
-        <div style={formContainerStyle}>
-            <h2 style={headlineStyle}>Electricity Costs</h2>
-          <p style={subQuestionStyle}>What is your average electric bill?</p>
-          <select
-            style={inputStyles}
-            value={formData.utilityBillCost}
-            onChange={(e) => onChange('utilityBillCost', e.target.value)}
-          >
-            {/* Replace these options with your actual ranges */}
-            <option value="0-50">$0-50</option>
-            <option value="51-100">$51-100</option>
-            <option value="101-150">$101-150</option>
-            {/* ... other options ... */}
-          </select>
-          <button style={buttonStyles} onClick={goToNextStep(4)}>Next</button>
-        </div>
-      );
+
+  return (
+  <div style={formContainerStyle}>
+    <h2 style={headlineStyle}>Electricity Costs</h2>
+    <p style={subQuestionStyle}>What is your average electric bill?</p>
+    <InputField
+      type="select"
+      name="utilityBillCost"
+      label="Average Electric Bill"
+      value={formData.utilityBillCost}
+      onChange={(e) => handleInputChange('utilityBillCost', e.target.value)}
+      options={[
+        { value: '0-50', label: '$0-50' },
+        { value: '51-100', label: '$51-100' },
+        { value: '101-150', label: '$101-150' },
+        // Add more options as needed
+      ]}
+      required={true}
+    />
+    <button style={buttonStyles} onClick={goToNextStep(4)}>Next</button>
+  </div>
+);
+
     // Step 4: Email address input
     case 4:
   return (
     <div style={formContainerStyle}>
       <h2 style={headlineStyle}>Good news, you're a great fit!</h2>
       <p style={subQuestionStyle}>Enter your Email Address</p>
-      <input
+      {/* <input
   type="email"
   className={validationErrors.email ? 'shake' : ''}
   placeholder="Email Address"
   value={formData.email}
-  onChange={(e) => onChange('email', e.target.value)}
+  onChange={(e) => handleInputChange('email', e.target.value)}
   required
   style={inputStyles}
-/>
+/> */}
 
-
+<InputField
+            type="email"
+            placeholder="Email Address"
+            className={validationErrors.email ? 'shake' : ''}
+            value={formData.email}
+            onChange={(e) => handleInputChange('email', e.target.value)}
+            required={true}
+          />
       <button style={buttonStyles} onClick={goToNextStep(5)}>Next</button>
     </div>
   );
@@ -319,13 +451,24 @@ const StepForm = ({
         <div style={formContainerStyle}>
       <h2 style={headlineStyle}>Good news, you're a great fit!</h2>
       <p style={subQuestionStyle}>What's your name?</p>
-          <input
+          {/* <input
             type="text"
             placeholder="Full Name"
             value={formData.name}
             className={validationErrors.name ? 'shake' : ''}
-            onChange={(e) => onChange('name', e.target.value)}
+            onChange={(e) => handleInputChange('name', e.target.value)}
             style={inputStyles}
+          /> */}
+
+
+          <InputField
+            label="Full Name"
+            type="text"
+            placeholder="Full Name"
+            className={validationErrors.name ? 'shake' : ''}
+            value={formData.name}
+            onChange={(e) => handleInputChange('name', e.target.value)}
+            required={true}
           />
           <button style={buttonStyles} onClick={goToNextStep(6)}>Next</button>
         </div>
@@ -337,15 +480,25 @@ const StepForm = ({
         <div style={formContainerStyle}>
              <h2 style={headlineStyle}>One last thing!....</h2>
       <p style={subQuestionStyle}> What number can we reach you at?</p>
-          <input
+          {/* <input
             type="tel"
             className={validationErrors.phoneNumber ? 'shake' : ''}
             placeholder="Phone Number"
             value={formData.phoneNumber}
-            onChange={(e) => onChange('phoneNumber', e.target.value)}
+            onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
             required  // Make phone number input required
             style={inputStyles}
-          />
+          /> */}
+      <InputField
+  label="What's your phone number?"
+  type="tel"
+  placeholder="Phone Number"
+  className={validationErrors.phoneNumber ? 'shake' : ''}
+  value={formData.phoneNumber}
+  onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+  required={true}
+/>
+
           <button style={buttonStyles} onClick={onFormSubmit}>
             Submit
           </button>
@@ -388,11 +541,14 @@ const LeadIntakeHero = () => {
     }
     return isValid;
   };
-
   const handleInputChange = (field, value) => {
-    setFormData({ ...formData, [field]: value });
+    console.log(`Input changed - Field: ${field}, Value: ${value}`);
+    setFormData(prevState => ({
+      ...prevState,
+      [field]: value
+    }));
   };
-
+  
   const handleNextStep = (nextStep) => {
     setCurrentStep(nextStep);
   };
@@ -491,9 +647,10 @@ const LeadIntakeHero = () => {
         <StepForm
           step={currentStep}
           onNext={handleNextStep}
-          onChange={handleInputChange}
+          handleInputChange={handleInputChange}
           onFormSubmit={handleSubmit}
           formData={formData}
+          
           validateInput={validateInput}
           validationErrors={validationErrors}
         />
