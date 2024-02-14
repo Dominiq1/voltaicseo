@@ -170,10 +170,12 @@ const formContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  width: '100%',
-  backgroundColor: "red",
+  width: '100%', // This ensures the container takes the full width of its parent
+
   marginTop: '2rem',
   zIndex: 9,
+  padding: '0', // Make sure padding isn't affecting the width
+  boxSizing: 'border-box', // Include padding and border in the element's width
 };
 
 const StepForm = ({
