@@ -1,0 +1,16 @@
+/* ResourcesStore.css */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .store-layout {
+    grid-template-columns: 1fr; /* Stack on small screens */
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Adjust grid for smaller screens */
+  }
+}

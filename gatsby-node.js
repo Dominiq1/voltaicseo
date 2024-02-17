@@ -108,6 +108,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
 
+   // Create blog home page
+   createPage({
+    path: `/shop`,
+    component: path.resolve(`./src/templates/Shop.js`),
+    context: {},
+  });
+
 
 
 
