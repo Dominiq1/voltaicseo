@@ -5,7 +5,7 @@ description: "Explore how urban areas can harness solar power despite space cons
 keywords: ["urban solar power", "solar energy solutions", "renewable energy policy", "grid stability", "solar innovation"]
 date: "2024-02-10"
 slug: "/solar-power-cities-challenges"
-featuredImage: "/images/urbanSolar.jpg"
+featuredImage: "../images/solarPanelWorker.jpg"
 category: "solar"
 
 ---

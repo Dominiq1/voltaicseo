@@ -5,7 +5,7 @@ description: "Learn about financing your solar today."
 keywords: ["solar savings", "solar energy savigns", "renewable energy savings", "grid stability", "solar bill"]
 date: "2024-02-10"
 slug: "/financing-solar"
-featuredImage: "/images/urbanSolar.jpg"
+featuredImage: "../images/solarPanelWorker.jpg"
 category: "solar"
 
 ---

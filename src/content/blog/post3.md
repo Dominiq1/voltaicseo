@@ -5,7 +5,7 @@ description: "Explore the breakthroughs in solar energy storage solutions, from 
 keywords: ["solar energy storage", "renewable energy", "battery technology", "solar power", "energy innovation"]
 date: "2024-02-10"
 slug: "/next-gen-solar-storage"
-featuredImage: "/images/solarEnergyStorage.jpg"
+featuredImage: "../images/solarPanelWorker.jpg"
 category: "solar"
 
 ---

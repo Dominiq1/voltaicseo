@@ -48,14 +48,15 @@ fetch('https://hooks.zapier.com/hooks/catch/8338143/3lse903/', {
 
 };
 
+//Working
+// gatsby-node.js
 
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+  // Check if the node is a MarkdownRemark node
   if (node.internal.type === `MarkdownRemark`) {
-    // Use the slug from the frontmatter if it exists
-    const slugFromFrontmatter = node.frontmatter && node.frontmatter.slug;
-    const slug = slugFromFrontmatter || createFilePath({ node, getNode });
+    // If a slug is provided in the frontmatter, use it; otherwise, generate one
+    const slug = node.frontmatter.slug || createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
       name: `slug`,
@@ -64,9 +65,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
+
+
+// gatsby-node.js
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve('src/templates/blogTemplate.js');
   const result = await graphql(`
     {
       allMarkdownRemark {
@@ -81,53 +85,41 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  // Error handling
   if (result.errors) {
     console.error(result.errors);
-    throw new Error('There was an error fetching posts', result.errors);
+    throw new Error('Error fetching Markdown slugs', result.errors);
   }
 
-  // Page creation
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
-      component: blogPostTemplate,
+      path: node.fields.slug, // Use the generated slug for the page path
+      component: path.resolve(`./src/templates/blogTemplate.js`),
       context: {
+        // Pass the slug into the template to use in page query
         slug: node.fields.slug,
-
       },
     });
   });
-
-
-   // Create blog home page
-   createPage({
-    path: `/resources`,
-    component: path.resolve(`./src/templates/Resources.js`),
-    context: {},
-  });
-
-
-
-  
 };
+
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
-  const typeDefs = `
-    type MarkdownRemarkFrontmatter {
+  // Define types for your frontmatter if necessary
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      fields: Fields
+    }
+    type Frontmatter {
       title: String
-      subTitle: String
       description: String
-      keywords: [String]
       date: Date @dateformat
       slug: String
       featuredImage: File @fileByRelativePath
-      category: String
     }
-    type MarkdownRemark implements Node {
-      frontmatter: MarkdownRemarkFrontmatter
+    type Fields {
+      slug: String
     }
-  `;
-  createTypes(typeDefs);
+  `);
 };

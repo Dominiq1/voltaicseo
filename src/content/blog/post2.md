@@ -5,7 +5,7 @@ description: "Discover how solar farms can coexist with and benefit local ecosys
 keywords: ["solar farms", "ecosystems", "renewable energy", "biodiversity", "land use"]
 date: "2024-02-10"
 slug: "/eco-friendly-solar-impact"
-featuredImage: "/images/solarFarmEcosystem.jpg"
+featuredImage: "/images/solarPanelWorker.jpg"
 category: "solar"
 
 ---

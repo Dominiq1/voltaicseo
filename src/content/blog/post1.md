@@ -6,7 +6,7 @@ keywords: ["solar energy benefits", "renewable energy", "solar power savings", "
 
 date: "2023-02-09"
 slug: "/why-go-solar"
-featuredImage: "/images/solarPanelWorker.jpg"
+featuredImage: "../images/solarPanelWorker.jpg"
 category: "solar"
 
 ---

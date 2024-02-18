@@ -86,6 +86,31 @@ const Resources = ({ data }) => {
 
 export default Resources;
 
+// In src/templates/Resources.js
+// export const query = graphql`
+//   query {
+//     allMdx(sort: {frontmatter: {date: DESC}}) {
+//       edges {
+//         node {
+//           id
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             category
+//             description
+//             keywords
+//           }
+//         }
+//       }
+//     }
+    
+//   }
+// `;
+
+
+
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

@@ -3,8 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `voltaicseo`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Voltaic Solar Energy Solutions`,
+    description: `Leading provider of modern, affordable, and green energy solutions for homes and businesses.`,
+    author: `@voltaic`,
+    siteUrl: `https://www.voltaicpowered.com`,
   },
   plugins: [
     {
@@ -48,6 +50,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
+              withWebp: true, // Serve WebP images
               // Options for gatsby-remark-images
             },
           },
@@ -55,8 +58,32 @@ module.exports = {
         ],
       },
     },
-    
-    `gatsby-transformer-sharp`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.voltaicpowered.com',
+        sitemap: 'https://www.voltaicpowered.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Voltaic Solar Energy Solutions`,
+        short_name: `Voltaic`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#004c3f`,
+        display: `minimal-ui`,
+        icon: `src/images/voltaiclogo.png`, // This path is relative to the root of the site.
+      },
+    },
+
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    'gatsby-transformer-sharp',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-offline`,
+  
   ]
 };

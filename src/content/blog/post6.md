@@ -5,7 +5,7 @@ description: "Explore the fusion of solar energy and smart homes for enhanced ef
 keywords: ["solar energy", "smart homes", "energy efficiency", "solar-powered devices", "home automation"]
 date: "2024-02-10"
 slug: "/solar-energy-smart-homes"
-featuredImage: "/images/smartHomeSolar.jpg"
+featuredImage: "../images/solarPanelWorker.jpg"
 category: "solar"
 
 ---

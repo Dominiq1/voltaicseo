@@ -17,40 +17,6 @@ import '../styles/global.css'
 import LeadIntakeHero from '../components/LeadIntake'
 
 
-// Styles for the images
-const imageStyles = {
-  width: '100%', // Full width
-  marginBottom: '1rem', // Adjust margin as needed
-};
-
-
-const responsiveImageStyles = `
-@media (max-width: 768px) {
-  .service-item img {
-    width: 30%; // Set the width to 30% of the screen width
-  }
-}
-`;
-// Define your base styles outside of the component
-const baseHeadingStyles = {
-  fontSize: '2rem', // Adjust base font size as needed
-  fontWeight: 'bold',
-  margin: '0.5rem 0',
-  // Do not set text alignment here, we'll handle it in media queries
-};
-
-const baseSubHeadingStyles = {
-  fontSize: '1.5rem',
-  margin: '0.5rem 0',
-  // Do not set text alignment here, we'll handle it in media queries
-};
-
-const baseInputStyles = {
-  width: '100%', // Full width
-  padding: '10px',
-  margin: '10px 0',
-  // Add any additional base styles for the input
-};
 // Global Styles
 const guaranteeSectionStyles = {
   backgroundColor: "#f0f4f8",
@@ -125,42 +91,6 @@ const serviceItemImageStyles = {
 
 
 
-//// HERO SECTON STYLES 
-// Define your styles here
-const heroSectionStyles = {
-  position: "relative",
-  color: "#fff",
-  backgroundImage: `url(${solarHouseImage})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  textAlign: "center",
-  padding: "4rem 1rem",
-  width: "100%",
-  minHeight: "100vh",
-  zIndex: 1,
-};
-
-const overlayStyle = {
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "rgba(0, 0, 0, 0.6)",
-  zIndex: 2,
-};
-
-const contentContainerStyle = {
-  position: "relative",
-  zIndex: 3,
-  maxWidth: "800px", // Adjusted max width
-  width: "100%",
-  margin: "0 auto",
-  padding: "0 1rem",
-};
 
 const inputStyles = {
   width: "100%", // Adjusted width
@@ -182,21 +112,6 @@ const buttonStyles = {
   cursor: "pointer",
 };
 
-const responsiveStyles = `
-@media (max-width: 768px) {
-  .hero-heading,
-  .hero-subheading {
-    text-align: left; // Adjusted alignment for smaller screens
-    width: 100%;
-    margin-left: 0;
-  }
-  .hero-input,
-  .hero-button {
-    width: 100%; // Adjusted width for smaller screens
-    margin: 0.5rem 0;
-  }
-}
-`;
 
 ////////////
 
@@ -312,58 +227,7 @@ const Solarreasons = [
 ];
 
 
-const WhySolarSection = () => (
-  <section style={servicesSectionStyles}>
-    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-      <h1>Why Solar?</h1>
-      <h3>Renewable Energy Solutions For Your Whole Home</h3>
-      <p>Discover the benefits of solar energy and why it's the right choice for your home. Voltaic offers modern solutions for energy independence, powered by solar energy. Here are four reasons to go solar:</p>
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
-        alignItems: "flex-start",
-      }}>
-        {/* Map over the Solarreasons array to generate reason items */}
-        {Solarreasons.map((reason, index) => (
-          <div key={index} className="service-item" style={serviceItemStyles}>
-            <img src={reason.image} alt={reason.title} style={serviceItemImageStyles} />
-            <h3>{reason.title}</h3>
-            <p>{reason.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>)
 
-
-
-
-const ServicesSection = () => (
-  <section style={servicesSectionStyles}>
-    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-      <h1>Our Services </h1>
-      <h3>Renewable Energy Solutions For Your Whole Home</h3>
-      <p>Voltaic offers modern, whole home or business solutions for energy independence. Solar power is the cornerstone of their offerings; a renewable and green source of energy that allows homeowners to be less dependent on traditional electricity sources. And the best part? Solar systems are becoming more efficient and cost-effective every day! Invest in a Voltaic Solar system to ensure your home or business is equipped to stay ahead of the changing energy landscape.</p>
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
-        alignItems: "flex-start",
-      }}>
-        {/* Map over the services array to generate service items */}
-        {services.map((service, index) => (
-  <div key={index} className="service-item" style={serviceItemStyles}>
-    <img src={service.image} alt={service.title} style={serviceItemImageStyles} />
-    <h3>{service.title}</h3>
-    <p>{service.description}</p>
-  </div>
-))}
-
-      </div>
-    </div>
-  </section>
-);
 
 
 const TestimonialSection = () => {
@@ -391,263 +255,6 @@ const TestimonialSection = () => {
     </section>
   );
 };
-
-// Define your components
-// const NavigationBar = () => (
-//   <nav style={navigationBarStyles}>
-//     <img src={logo} alt="Company Logo" style={{ height: "3em" }} />
-//     <div>
-//       <Link to="/" style={navigationLinkStyles}>Home</Link>
-//       <Link to="/about" style={navigationLinkStyles}>About</Link>
-//       <Link to="/services" style={navigationLinkStyles}>Services</Link>
-//       <Link to="/contact" style={navigationLinkStyles}>Contact</Link>
-//     </div>
-//   </nav>
-// );
-
-
-// Updated and additional components based on the provided code structure
-// ... other imports and code ...
-
-
-
-
-const ContactSection = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = {
-      name: event.target.elements.name.value,
-      phoneNumber: event.target.elements.phoneNumber.value,
-      utilityBillCost: event.target.elements.utilityBillCost.value,
-    };
-
-    try {
-      // Your form submission logic here
-      // Use formData to submit to your backend
-      console.log("Form Data:", formData);
-
-      // Example: Sending data to a Netlify function
-      const response = await fetch('/.netlify/functions/submitToCrm', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      setFormSubmitted(true);
-    } catch (error) {
-      console.error('There was an error submitting the form:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // If the form has been submitted, display the success message
-  if (formSubmitted) {
-    return (
-      <div style={contactSectionStyles}>
-        <h2>Thank you for your submission!</h2>
-        <p>We will be in touch soon.</p>
-      </div>
-    );
-  }
-
-  // If the form hasn't been submitted, display the form
-  return (
-    <section style={contactSectionStyles}>
-      <h2>Get A Quote Today</h2>
-      <p>Free, No Obligation</p>
-      <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
-        <input name="name" type="text" placeholder="Name" style={inputStyles} />
-        <input name="phoneNumber" type="tel" placeholder="Phone Number" style={inputStyles} />
-        <select name="utilityBillCost" required style={inputStyles}>
-          <option value="">Select your utility bill cost</option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        <button type="submit" style={buttonStyles} disabled={isSubmitting}>
-          {isSubmitting ? 'Submitting...' : 'Submit'}
-        </button>
-      </form>
-    </section>
-  );
-};
-
-
-// const ContactSection = () => {
-//   const [formSubmitted, setFormSubmitted] = useState(false);
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     setIsSubmitting(true);
-  
-//     const formData = {
-//       name: event.target.elements.name.value,
-//       email: event.target.elements.email.value,
-//       homeSize: event.target.elements.homeSize.value,
-//     };
-  
-
-    
-//     try {
-//       const response = await fetch('/api/submitToCrm', {
-//         method: 'POST',
-//         body: JSON.stringify(formData),
-//         headers: { 'Content-Type': 'application/json' },
-//       });
-    
-//       // Read the response as text first
-//       const text = await response.text();
-//       console.log('Response body as text:', text);
-    
-//       // Check if the response is OK before attempting to parse JSON
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-    
-//       let responseBody;
-//       // Check if the text is not empty and is a valid JSON before parsing
-//       if (text) {
-//         try {
-//           responseBody = JSON.parse(text);
-//         } catch (parseError) {
-//           console.error('Error parsing JSON:', parseError);
-//           // Handle parsing error or set a default value/fallback for responseBody
-//           responseBody = null; // Set to null or an appropriate fallback value
-//         }
-//       } else {
-//         // Handle cases where the response text is empty
-//         console.log('Response body is empty');
-//         responseBody = null; // Set to null or an appropriate fallback value
-//       }
-    
-//       if (responseBody) {
-//         setFormSubmitted(true);
-//       } else {
-//         // Handle cases where responseBody could not be set due to empty or invalid JSON
-//         // This might involve setting an error state or message for the user
-//       }
-//     } catch (error) {
-//       console.error('There was an error submitting the form:', error);
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-    
-  
-//     //   const responseBody = await response.json();
-//     //   setFormSubmitted(true);
-//     // } catch (error) {
-//     //   console.error('There was an error submitting the form:', error);
-//     // } finally {
-//     //   setIsSubmitting(false);
-//     // }
-
-
-
-    
-//   };
-  
-  
-
-
-//   // If the form has been submitted, display the success message
-//   if (formSubmitted) {
-//     return (
-//       <div style={contactSectionStyles}>
-//         <h2>Thank you for your submission!</h2>
-//         <p>We will be in touch soon.</p>
-//       </div>
-//     );
-//   }
-
-//   // If the form hasn't been submitted, display the form
-//   return (
-//     <section style={contactSectionStyles}>
-//       <h2>Get A Quote Today</h2>
-//       <p>Free, No Obligation</p>
-//       <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
-//         <input name="name" type="text" placeholder="Name" style={inputStyles} />
-//         <input name="email" type="email" placeholder="Email*" required style={inputStyles} />
-//         <input name="homeSize" type="text" placeholder="Home Size" style={inputStyles} />
-//         <button type="submit" style={buttonStyles} disabled={isSubmitting}>
-//           {isSubmitting ? 'Submitting...' : 'Submit'}
-//         </button>
-//       </form>
-//     </section>
-//   );
-// };
-
-
-
-
-
-
-const HeroSection = () => {
-  const widgetRef = useRef(null);
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://stella.demand-iq.com/widget-address/voltaic-construction.estimate.demand-iq.com/";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // The widget may take some time to load, so we might need to set a timeout
-    // to apply styles after it's present in the DOM.
-    const timer = setTimeout(() => {
-      if (widgetRef.current) {
-        const widgetContainer = widgetRef.current;
-        const widget = widgetContainer.querySelector('.demand-iq-stella-widget');
-        if (widget) {
-          // Apply custom styles here
-          widget.style.margin = '0 auto';
-          widget.style.display = 'flex';
-          widget.style.flexDirection = 'column';
-          widget.style.alignItems = 'center';
-          widget.style.justifyContent = 'center';
-        }
-      }
-    }, 1000); // Adjust the timeout as needed
-
-    return () => {
-      clearTimeout(timer);
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  return (
-   
-
-
-<section style={heroSectionStyles}>
-<style>{responsiveStyles}</style>
-<div style={overlayStyle}></div> {/* Overlay */}
-<div style={contentContainerStyle}> {/* Content container */}
-  <h1 className="hero-heading" style={baseHeadingStyles}>Defend Your Home From Blackouts —</h1>
-  <p className="hero-subheading" style={baseSubHeadingStyles}>Get Your Custom Energy Resilience plan today!</p>
-  {/* Input and button elements with classes for styling */}
-  <div ref={widgetRef} className="demand-iq-stella-widget" data-utm-content=""></div>
-
-</div>
-</section>
-  );
-};
-
-
-
-
-
 
 
 const Footer = () => (
@@ -709,24 +316,9 @@ const IndexPage = () => {
       `}</style>
     </Helmet>
       <NavigationBar />
-      {/* <NavigationBar/> */}
-      {/* <ChatInterface/> */}
-
-      {/* Stella Hero section */}
-      {/* <HeroSection /> */}
     
-
       <LeadIntakeHero slug={"Home"}/>
 
-{/*     
-      <GuaranteeSection /> */}
-      {/* <ServicesSection /> */}
-      {/* <WhySolarSection/>
-      <EnergyIndependenceSection/>
-      <TestimonialSection />
-      <ContactSection /> */}
-      {/* Other sections can be added here */}
-      {/* Additional content sections would go here */}
       <Footer />
     
     </main>
