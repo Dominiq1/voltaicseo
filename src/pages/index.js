@@ -302,7 +302,20 @@ const IndexPage = () => {
     <main style={pageStyles}>
      <Helmet>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Home Page</title>
+      <title>Home Page - Voltaic Energy Company</title>
+  <meta name="description" content="Welcome to Voltaic Energy Company - Leading the change in renewable energy solutions." />
+  <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy" />
+  <link rel="canonical" href="https://www.voltaicpowered.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Home Page - Voltaic Energy Company" />
+  <meta property="og:description" content="Welcome to Voltaic Energy Company - Leading the change in renewable energy solutions." />
+  <meta property="og:image" content={solarHouseImage} />
+  <meta property="og:url" content="https://www.voltaicpowered.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Home Page - Voltaic Energy Company" />
+  <meta name="twitter:description" content="Welcome to Voltaic Energy Company - Leading the change in renewable energy solutions." />
+  <meta name="twitter:image" content={solarHouseImage} />
+
       <style>{`
         html, body {
           margin: 0;
