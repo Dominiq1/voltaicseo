@@ -8,7 +8,7 @@ exports.handler = async (event) => {
   }
 
   // Adjusted to match the form fields from your multi-step form
-  const { utilityBillCost, email, name, phoneNumber, homeOwnership } = JSON.parse(event.body);
+  const { utilityBillCost, email, name, phoneNumber, homeOwnership, slug } = JSON.parse(event.body);
 
   const zapierWebhook = 'https://hooks.zapier.com/hooks/catch/8338143/3lse903/';
 
@@ -21,7 +21,8 @@ exports.handler = async (event) => {
         email, 
         name, 
         phoneNumber, 
-        homeOwnership 
+        homeOwnership,
+        slug
       }),
       headers: { 'Content-Type': 'application/json' },
     });

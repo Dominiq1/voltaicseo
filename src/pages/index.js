@@ -714,7 +714,9 @@ const IndexPage = () => {
 
       {/* Stella Hero section */}
       {/* <HeroSection /> */}
-      <LeadIntakeHero/>
+    
+
+      <LeadIntakeHero slug={"Home"}/>
 
 {/*     
       <GuaranteeSection /> */}

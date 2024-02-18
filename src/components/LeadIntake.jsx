@@ -69,20 +69,6 @@ const stepTextStyle = {
  ///= ================ = = = = = == = ==   = = 
 
 
-const heroSectionStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  position: 'relative',
-  color: '#fff',
-  backgroundImage: `url(${solarHouseImage})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  height: '100vh',
-  padding: '4rem 1rem',
-  width: '100%',
-  zIndex: 1,
-};
 const overlayStyle = {
     position: 'absolute',
     top: 0,
@@ -503,7 +489,26 @@ const InputField = ({
 
 };
 
-const LeadIntakeHero = () => {
+const LeadIntakeHero = ({slug}) => {
+
+const heroSectionStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  position: 'relative',
+  color: '#fff',
+  backgroundImage: `url(${solarHouseImage})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+   height: '100vh',
+  padding: '4rem 1rem',
+  width: '100%',
+  zIndex: 1,
+  height: slug === "Home" ? '100vh' : '50em', // Conditional height based on slug
+     
+};
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -569,7 +574,7 @@ const LeadIntakeHero = () => {
   try {
     const response = await fetch('/.netlify/functions/submitLead', {
       method: 'POST',
-      body: JSON.stringify({ utilityBillCost, email, name, phoneNumber, homeOwnership }),
+      body: JSON.stringify({ utilityBillCost, email, name, phoneNumber, homeOwnership, slug }),
       headers: { 'Content-Type': 'application/json' },
     });
 

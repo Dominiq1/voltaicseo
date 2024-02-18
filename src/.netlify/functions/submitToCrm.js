@@ -8,14 +8,14 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const { name, phoneNumber, utilityBillCost } = JSON.parse(event.body); // Parse new fields
+  const { name, phoneNumber, utilityBillCost, slug } = JSON.parse(event.body); // Parse new fields
 
   const zapierWebhook = 'https://hooks.zapier.com/hooks/catch/8338143/3lse903/';
 
   try {
     const zapierResponse = await fetch(zapierWebhook, {
       method: 'POST',
-      body: JSON.stringify({ name, phoneNumber, utilityBillCost }), // Update payload
+      body: JSON.stringify({ name, phoneNumber, utilityBillCost, slug }), // Update payload
       headers: { 'Content-Type': 'application/json' },
     });
 

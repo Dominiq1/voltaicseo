@@ -1,7 +1,7 @@
 {
 	"geolocation": {
 		"data": {
-			"city": "Murrieta",
+			"city": "Montclair",
 			"country": {
 				"code": "US",
 				"name": "United States"
@@ -11,9 +11,9 @@
 				"name": "California"
 			},
 			"timezone": "America/Los_Angeles",
-			"latitude": 33.5631,
-			"longitude": -117.2738
+			"latitude": 34.0718,
+			"longitude": -117.6973
 		},
-		"timestamp": 1707936080843
+		"timestamp": 1708215946084
 	}
 }

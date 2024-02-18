@@ -57,7 +57,7 @@ const Footer = () => (
     color: "#fff",
     padding: "1rem 0",
     textAlign: "center",
-    position: 'absolute', // Ensuring footer is at the bottom
+    position: 'relative', // Ensuring footer is at the bottom
     bottom: '0',
     left: '0',
     width: '100%', // Ensuring footer is full width

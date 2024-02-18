@@ -2,9 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import NavigationBar from '../components/NavigationBar';
+
 import SEO from '../components/seo';
 import { Helmet } from 'react-helmet';
 import solarHouseImage from "../images/solar.jpg"
+import Contact from '../components/Contact'
+import LeadIntakeHero from '../components/LeadIntake';
 
 
 // ... (other imports remain the same)
@@ -35,6 +38,9 @@ const BlogPostTemplate = ({ data }) => {
             fontSize: '1.25rem',
             color: '#ddd'
           }}>{post?.frontmatter?.date || 'Blog Date'}</p>
+
+
+
         </header>
         <section style={{
           padding: '2rem 5%',
@@ -48,6 +54,10 @@ const BlogPostTemplate = ({ data }) => {
           <div dangerouslySetInnerHTML={{ __html: post?.html || 'No Content' }} />
         </section>
       </article>
+
+      <LeadIntakeHero slug={post?.fields?.slug}/>
+
+  
     </Layout>
   );
 };
@@ -58,9 +68,13 @@ export default BlogPostTemplate;
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      fields {
+        slug
+      }
       html
       frontmatter {
         title
+      
         date(formatString: "MMMM DD, YYYY")
         featuredImage {
           childImageSharp {
@@ -70,6 +84,10 @@ export const pageQuery = graphql`
           }
         }
       }
+      
+        
+
+      
       excerpt(pruneLength: 160)
     }
   }
