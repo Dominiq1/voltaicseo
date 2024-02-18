@@ -67,7 +67,7 @@ const NavigationBar = () => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'teal',
+    backgroundColor: '#D6EAF8', // This is a light, soft blue
     padding: '1rem',
     color: 'white',
   };
@@ -77,9 +77,9 @@ const NavigationBar = () => {
       <img src={logo} alt="Company Logo" style={{ height: '3em' }} />
      
      
-      {/* Hamburger unicode :  <button onClick={toggleMenu} style={menuButtonStyles}>
+<button onClick={toggleMenu} style={menuButtonStyles}>
         &#9776; 
-      </button> */}
+      </button>
 
 
 

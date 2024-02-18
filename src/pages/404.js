@@ -6,44 +6,37 @@ const pageStyles = {
   padding: "96px",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
+
 const headingStyles = {
   marginTop: 0,
-  marginBottom: 64,
+  marginBottom: 48,
   maxWidth: 320,
+  color: "#1976D2", // Soften the color for a calmer look
 }
 
 const paragraphStyles = {
   marginBottom: 48,
 }
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
 
 const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
+      <title>Page Not Found</title>
+      <h1 style={headingStyles}>Lost in Space?</h1>
       <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
+        Don’t worry, it happens to the best of us. Let’s get you back home.
       </p>
+      <Link to="/resources" style={{
+        background: "#1976D2",
+        color: "white",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        textDecoration: "none",
+      }}>
+        Return to Resources
+      </Link>
     </main>
   )
 }
 
 export default NotFoundPage
-
-export const Head = () => <title>Not found</title>

@@ -81,17 +81,23 @@ const overlayStyle = {
 
 
 const callToActionStyle = {
-  fontWeight: 'bold',
-
+  fontWeight: '300',
+  textTransform: 'uppercase',
   textTransform: 'uppercase',
   margin: '1rem 0',
-  color: '#50c1f7',
+  color: 'white', // Changed text color to white
+  lineHeight: '1.5' ,
+  textAlign:'center'
 };
 const headlineStyle = {
-  fontWeight: 'bold',
-  fontSize: '2rem', // Example size, adjust as needed
+  fontWeight: '600',
+  fontSize: '2.5rem', // Example size, adjust as needed
   textAlign: 'left',
   marginBottom: '1rem',
+  color: 'white',
+  lineHeight: '1.2',
+  textAlign:'center'
+  
 };
 
 const subQuestionStyle = {
@@ -119,22 +125,21 @@ const textContentStyle = {
 
 
 const buttonStyles = {
-  width: 'calc(100% - 1rem)',
-  maxWidth: '500px',
+  width: 'auto', // Changed from 100% to auto to match the button in the image
+  maxWidth: 'none', // Removed max-width restriction
   height: '50px',
-  margin: '1rem auto',
-  padding: '0.5rem 1rem',
-  backgroundColor: '#008ca8',
-  color: '#fff',
-  borderRadius: '25px',
-  border: 'none',
+  margin: '1rem 0', // Adjusted margin to only top and bottom
+  padding: '0 2rem', // Increased horizontal padding
+  backgroundColor: 'transparent', // Transparent background for the button
+  color: 'white', // Text color set to white
+  borderRadius: '30px', // Rounded corners to match the button in the image
+  border: '2px solid white', // White border to match the image
   cursor: 'pointer',
-  display: 'block',
+  display: 'inline-block', // Changed to inline-block to wrap content
   fontSize: '1rem',
   textAlign: 'center',
-  fontWeight: 'Bold'
-
-
+  fontWeight: '600', // Adjusted font weight to match the image
+  textTransform: 'uppercase', // Uppercase text to match the image
 };
 
 const centeredContentStyle = {
@@ -267,45 +272,6 @@ const InputField = ({
 
 
 
-
-
-
-
-// InputField component
-// const InputField = ({ label, name, type , placeholder, value, onChange, className, required }) => {
-//   // Define the base styles for the input fields
-//   const baseInputStyle = {
-//     height: '50px', // Larger height for touch friendliness
-//     width: '100%', // Full width to match the container
-//     margin: '10px 0', // Margin for spacing around the input
-//     padding: '0 20px', // Padding inside the input
-//     fontSize: '16px', // Font size similar to the image
-//     border: '1px solid #ccc', // Light grey border
-//     borderRadius: '30px', // Rounded corners like the image
-//     boxSizing: 'border-box', // Ensures padding doesn't affect the width
-//   };
-
-//   // Merge base styles with shake effect if className is provided
-//   const inputStyle = className ? {...baseInputStyle, ...shakeStyle} : baseInputStyle;
-
-//   return (
-//     <div>
-//       {label && <label htmlFor={name} style={{ display: 'block' }}>{label}</label>}
-//       <input
-//         type={type}
-//         name={name}
-//      //   id={name}
-//         placeholder={placeholder}
-//         value={value}
-//         onChange={onChange}
-//       //  required={required}
-//         className={className} // Apply the 'shake' class if there's a validation error
-//       //  style={inputStyle}
-//       />
-//     </div>
-//   );
-// };
-
   const goToNextStep = (newStep) => () => {
     let isValid = true;
   
@@ -345,16 +311,16 @@ const InputField = ({
       return (
         <div style={centeredContentStyle}>
       
-<div style={textContentStyle}>
-          <h1 style={headlineStyle}>Enhance Home Resilience During Power Interruptions</h1>
-          {/* <p style={subQuestionStyle}>Explore the path to energy self-sufficiency.</p> */}
-          <p style={callToActionStyle}>Initiate your transition to a durable and eco-friendly future through solar energy.</p>
-        </div>
-        <div style={buttonContainerStyle}>
-          <button style={buttonStyles} onClick={goToNextStep(2)}>
-            Begin Your Solar Journey
-          </button>
-        </div>
+      <div style={textContentStyle}>
+  <h1 style={headlineStyle}>Solar Simplified</h1>
+  <p style={callToActionStyle}>Start your sustainable journey today.</p>
+</div>
+<div style={buttonContainerStyle}>
+  <button style={buttonStyles} onClick={goToNextStep(2)}>
+    Get Started
+  </button>
+</div>
+
       </div>
       );
     // Step 2: Home ownership question

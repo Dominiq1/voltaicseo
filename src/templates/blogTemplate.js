@@ -19,25 +19,41 @@ const BlogPostTemplate = ({ data }) => {
         title={post.frontmatter.title || 'Blog Post'} 
         description={post.frontmatter.description || ''}
         keywords={post.frontmatter.keywords?.join(', ')}
+        slug={post.fields.slug}
       />
       <NavigationBar />
       <article>
-        <header style={{
-          padding: '5rem 1rem',
-          textAlign: 'center',
-          backgroundImage: `url(${backgroundImageUrl})`, // Set the background image
-          backgroundSize: 'cover',
-          color: '#fff',
-          height: '50vh',
-          fontFamily: "'Open Sans', sans-serif",
-        }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
-            {post.frontmatter.title}
-          </h1>
-          <p style={{ fontSize: '1.25rem', color: '#ddd' }}>
-            {post.frontmatter.date}
-          </p>
-        </header>
+      <header style={{
+  padding: '5rem 1rem',
+  textAlign: 'center',
+  backgroundImage: `url(${backgroundImageUrl})`, // Set the background image
+  backgroundSize: 'cover',
+  backgroundPosition: 'center center', // Centers the background image
+  color: '#fff',
+  height: '50vh',
+  display: 'flex', // Use flexbox for centering
+  flexDirection: 'column', // Stack children vertically
+  justifyContent: 'center', // Center vertically
+  alignItems: 'center', // Center horizontally
+  fontFamily: "'Open Sans', sans-serif",
+}}>
+  <h1 style={{ 
+    fontSize: '2rem', // Start with a smaller base font size
+    marginBottom: '0.5rem',
+    maxWidth: '95%', // Ensure the text doesn't touch the edges
+    wordWrap: 'break-word' // Ensures text breaks to prevent overflow
+  }}>
+    {post.frontmatter.title}
+  </h1>
+  <p style={{ 
+    fontSize: '1.25rem', 
+    color: '#ddd',
+    marginTop: '1rem' // Add space between the title and the date
+  }}>
+    {post.frontmatter.date}
+  </p>
+</header>
+
         <section style={{
           padding: '2rem 5%',
           lineHeight: '1.75',
