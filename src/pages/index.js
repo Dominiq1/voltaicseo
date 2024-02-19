@@ -9,6 +9,7 @@ import solarImage from "../images/solar.png"
 import logo from "../images/voltaiclogo.png"
 import NavigationBar from "../components/NavigationBar"
 import { Helmet } from 'react-helmet';
+import QualitiesComponent from "../components/Qualities";
 // index.js or App.js
 
 import '../styles/global.css'
@@ -331,6 +332,7 @@ const IndexPage = () => {
       <NavigationBar />
     
       <LeadIntakeHero slug={"Home"}/>
+      <QualitiesComponent/>
 
       <Footer />
     

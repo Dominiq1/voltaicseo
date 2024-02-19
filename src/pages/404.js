@@ -21,6 +21,8 @@ const paragraphStyles = {
 const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
+
+     
       <title>Page Not Found</title>
       <h1 style={headingStyles}>Lost in Space?</h1>
       <p style={paragraphStyles}>

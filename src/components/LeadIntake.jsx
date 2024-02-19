@@ -312,7 +312,7 @@ const InputField = ({
         <div style={centeredContentStyle}>
       
       <div style={textContentStyle}>
-  <h1 style={headlineStyle}>Solar Simplified</h1>
+  <h1 style={headlineStyle}>Solar Simplified.</h1>
   <p style={callToActionStyle}>Start your sustainable journey today.</p>
 </div>
 <div style={buttonContainerStyle}>
