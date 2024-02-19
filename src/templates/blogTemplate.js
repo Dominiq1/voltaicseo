@@ -36,12 +36,25 @@ const BlogPostTemplate = ({ data }) => {
   justifyContent: 'center', // Center vertically
   alignItems: 'center', // Center horizontally
   fontFamily: "'Open Sans', sans-serif",
+  position: 'relative', // Add relative positioning to allow absolute positioning of overlay
 }}>
+  {/* Overlay */}
+  <div style={{
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black overlay
+  }}></div>
+
   <h1 style={{ 
     fontSize: '2rem', // Start with a smaller base font size
     marginBottom: '0.5rem',
     maxWidth: '95%', // Ensure the text doesn't touch the edges
-    wordWrap: 'break-word' // Ensures text breaks to prevent overflow
+    wordWrap: 'break-word', // Ensures text breaks to prevent overflow
+    position: 'relative', // Ensure title stays above overlay
+    zIndex: 1, // Ensure title stays above overlay
   }}>
     {post.frontmatter.title}
   </h1>
@@ -53,6 +66,7 @@ const BlogPostTemplate = ({ data }) => {
     {post.frontmatter.date}
   </p>
 </header>
+
 
         <section style={{
           padding: '2rem 5%',

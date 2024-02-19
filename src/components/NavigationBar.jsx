@@ -11,8 +11,8 @@ const NavigationBar = () => {
   const menuItems = {
     main: [
       { name: 'Products', submenu: 'products' },
-      { name: 'Learn', submenu: 'learn' },
-      { name: 'Company', link: '/company' },
+      { name: 'Learn', submenu: 'learn' }
+
     ],
     products: [
       { name: 'Solar Panels', link: '/intro-to-solar-panels-for-homeowners' },
