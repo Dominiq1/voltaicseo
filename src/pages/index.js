@@ -301,34 +301,35 @@ const IndexPage = () => {
   }, []);
   return (
     <main style={pageStyles}>
-     <Helmet>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Home Page - Voltaic Energy Company</title>
-  <meta name="description" content="Welcome to Voltaic Energy Company - Leading the change in renewable energy solutions." />
-  <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy" />
+    <Helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empowering Your Energy Future | Voltaic Energy</title>
+  <meta name="description" content="Discover how Voltaic Energy Company leads the change in renewable energy solutions, providing clean and affordable solar energy solutions for homes and businesses." />
+  <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy, energy solutions, voltaic energy" />
   <link rel="canonical" href="https://www.voltaicpowered.com" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Home Page - Voltaic Energy Company" />
-  <meta property="og:description" content="Welcome to Voltaic Energy Company - Leading the change in renewable energy solutions." />
+  <meta property="og:title" content="Empowering Your Energy Future | Voltaic Energy" />
+  <meta property="og:description" content="Discover how Voltaic Energy Company leads the change in renewable energy solutions, providing clean and affordable solar energy solutions for homes and businesses." />
   <meta property="og:image" content={solarHouseImage} />
   <meta property="og:url" content="https://www.voltaicpowered.com" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Home Page - Voltaic Energy Company" />
-  <meta name="twitter:description" content="Welcome to Voltaic Energy Company - Leading the change in renewable energy solutions." />
+  <meta name="twitter:title" content="Empowering Your Energy Future | Voltaic Energy" />
+  <meta name="twitter:description" content="Discover how Voltaic Energy Company leads the change in renewable energy solutions, providing clean and affordable solar energy solutions for homes and businesses." />
   <meta name="twitter:image" content={solarHouseImage} />
 
-      <style>{`
-        html, body {
-          margin: 0;
-          padding: 0;
-          /* Add any other global styles here */
-        }
-        *, *::before, *::after {
-          box-sizing: border-box;
-          /* Add any other global styles here */
-        }
-      `}</style>
-    </Helmet>
+  <style>{`
+    html, body {
+      margin: 0;
+      padding: 0;
+      /* Add any other global styles here */
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      /* Add any other global styles here */
+    }
+  `}</style>
+</Helmet>
+
       <NavigationBar />
     
       <LeadIntakeHero slug={"Home"}/>
@@ -342,5 +343,5 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>Empowering Your Energy Future | Voltaic Energy</title>
 
