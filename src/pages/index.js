@@ -308,6 +308,7 @@ const IndexPage = () => {
     <main style={pageStyles}>
     <Helmet  >
     <html lang="en" />
+    
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>#1 California Home Energy Company | Voltaic Energy</title>
   <meta name="description" content="Discover how Voltaic Energy leads renewable solutions with clean, affordable solar energy for homes & businesses." />
@@ -327,6 +328,7 @@ const IndexPage = () => {
     html, body {
       margin: 0;
       padding: 0;
+      background-color: #000;
       /* Add any other global styles here */
     }
     *, *::before, *::after {
