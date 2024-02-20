@@ -90,7 +90,7 @@ const navigationBarStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: '#D6EAF8',
+  backgroundColor: '#000000',
   padding: '1rem',
   color: 'white',
 };

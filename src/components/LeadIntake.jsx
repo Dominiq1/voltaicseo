@@ -496,14 +496,15 @@ const LeadIntakeHero = ({slug}) => {
     color: '#fff',
     backgroundImage: `url(${solarHouseImage})`,
     backgroundSize: 'cover',
-    backgroundPosition: `center ${parallaxOffset}px`, // Apply the parallax offset here
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed', // Fix the background image
     height: '100vh',
     padding: '4rem 1rem',
     width: '100%',
     zIndex: 1,
     height: slug === 'Home' ? '100vh' : '50em',
   };
-
+  
 
 
   const [formData, setFormData] = useState({

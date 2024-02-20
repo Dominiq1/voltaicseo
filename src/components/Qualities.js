@@ -65,29 +65,31 @@ const responsiveHeadlineStyle = {
   const features = [
     {
       icon: '🌞',
-      title: 'Unrivaled home solar and battery experience',
-      description: 'With 900,000 homes and counting, no one has more installation expertise.',
+      title: 'Leading provider of home solar solutions',
+      description: 'Trusted by homeowners across California for reliable solar energy solutions.',
     },
     {
       icon: '⚡',
-      title: 'Smart technology',
-      description: 'An ecosystem of innovative products that put you in control of your home energy needs.',
+      title: 'Expert in battery storage systems',
+      description: 'Power your home with efficient battery storage solutions for uninterrupted energy supply.',
     },
     {
-      icon: '💳',
-      title: 'Payment solutions for every home',
-      description: 'Tailored plans including predictable monthly payments, little-to-no money down, and no-debt options.',
+      icon: '❄️',
+      title: 'HVAC specialists',
+      description: 'Keep your home comfortable year-round with our expert HVAC services and solutions.',
     },
     {
-      icon: '🛡️',
-      title: 'The Voltaic Guarantee',
-      description: 'The industry’s most comprehensive repairs, maintenance & monitoring program.',
+      icon: '💡',
+      title: 'Comprehensive home energy solutions',
+      description: 'From solar to battery storage and HVAC, we cover all your home energy needs.',
     },
   ];
-
+  
   return (
     <>
-      <div style={responsiveHeadlineStyle}>#1 home solar & battery storage company in California</div>
+      <div style={responsiveHeadlineStyle}> #1 HOME SOLAR & BATTERY STORAGE COMPANY IN CALIFORNIA</div>
+
+ 
       <div style={gridContainerStyle}>
         {features.map((feature, index) => (
           <div key={index} style={featureItemStyle}>
