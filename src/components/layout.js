@@ -16,14 +16,14 @@ const Layout = ({ children, isFullWidth }) => {
             padding: 0;
             width: 100%;
             height: 100%;
-         background-color: DeepPink;
+       
           }
           *, *::before, *::after {
             box-sizing: border-box;
           }
           .footer {
             padding: 1rem 0;
-            background-color: #333; // A darker background for the footer
+          
             color: white; // Light text color for contrast
             text-align: center;
             font-size: 0.9rem;
