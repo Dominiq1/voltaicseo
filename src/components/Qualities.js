@@ -87,7 +87,7 @@ const responsiveHeadlineStyle = {
 
   return (
     <>
-      <div style={responsiveHeadlineStyle}>#1 solar company & battery company in California</div>
+      <div style={responsiveHeadlineStyle}>#1 home solar & battery storage company in California</div>
       <div style={gridContainerStyle}>
         {features.map((feature, index) => (
           <div key={index} style={featureItemStyle}>

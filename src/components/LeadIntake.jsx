@@ -208,9 +208,22 @@ const InputField = ({
   const inputRef = useRef(null);
 
   useEffect(() => {
+
+
+
     if (inputRef.current) {
       inputRef.current.focus();
     }
+
+
+
+
+
+
+
+
+
+    
   }, []);
 
   const baseInputStyle = {
@@ -312,7 +325,7 @@ const InputField = ({
         <div style={centeredContentStyle}>
       
       <div style={textContentStyle}>
-  <h1 style={headlineStyle}>Solar Simplified.</h1>
+  <h1 style={headlineStyle}>Home Energy Simplified.</h1>
   <p style={callToActionStyle}>Start your sustainable journey today.</p>
 </div>
 <div style={buttonContainerStyle}>
@@ -456,23 +469,41 @@ const InputField = ({
 };
 
 const LeadIntakeHero = ({slug}) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-const heroSectionStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  position: 'relative',
-  color: '#fff',
-  backgroundImage: `url(${solarHouseImage})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-   height: '100vh',
-  padding: '4rem 1rem',
-  width: '100%',
-  zIndex: 1,
-  height: slug === "Home" ? '100vh' : '50em', // Conditional height based on slug
-     
-};
+
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const parallaxOffset = scrollPosition * 0.5; // Adjust the speed of the parallax effect here
+
+  const heroSectionStyles = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    position: 'relative',
+    color: '#fff',
+    backgroundImage: `url(${solarHouseImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: `center ${parallaxOffset}px`, // Apply the parallax offset here
+    height: '100vh',
+    padding: '4rem 1rem',
+    width: '100%',
+    zIndex: 1,
+    height: slug === 'Home' ? '100vh' : '50em',
+  };
+
 
 
   const [formData, setFormData] = useState({
