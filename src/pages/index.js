@@ -301,7 +301,8 @@ const IndexPage = () => {
   }, []);
   return (
     <main style={pageStyles}>
-    <Helmet>
+    <Helmet  >
+    <html lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Empowering Your Energy Future | Voltaic Energy</title>
   <meta name="description" content="Discover how Voltaic Energy leads renewable solutions with clean, affordable solar energy for homes & businesses." />
