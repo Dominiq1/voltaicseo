@@ -309,7 +309,7 @@ const IndexPage = () => {
     <Helmet  >
     <html lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Empowering Your Energy Future | Voltaic Energy</title>
+  <title>#1 California Home Energy Company | Voltaic Energy</title>
   <meta name="description" content="Discover how Voltaic Energy leads renewable solutions with clean, affordable solar energy for homes & businesses." />
  <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy, energy solutions, voltaic energy" />
   <link rel="canonical" href="https://www.voltaicpowered.com" />
