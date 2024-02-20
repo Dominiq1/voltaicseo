@@ -16,6 +16,7 @@ const Layout = ({ children, isFullWidth }) => {
             padding: 0;
             width: 100%;
             height: 100%;
+         background-color: DeepPink;
           }
           *, *::before, *::after {
             box-sizing: border-box;
