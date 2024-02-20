@@ -71,7 +71,7 @@ const BlogPostTemplate = ({ data }) => {
         <section style={{
           padding: '2rem 5%',
           lineHeight: '1.75',
-          backgroundColor: '#f8f8f8',
+          backgroundColor: '#00000',
           color: '#333',
           maxWidth: '800px',
           margin: '0 auto',
