@@ -304,12 +304,12 @@ const IndexPage = () => {
     <Helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Empowering Your Energy Future | Voltaic Energy</title>
-  <meta name="description" content="Discover how Voltaic Energy Company leads the change in renewable energy solutions, providing clean and affordable solar energy solutions for homes and businesses." />
-  <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy, energy solutions, voltaic energy" />
+  <meta name="description" content="Discover how Voltaic Energy leads renewable solutions with clean, affordable solar energy for homes & businesses." />
+ <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy, energy solutions, voltaic energy" />
   <link rel="canonical" href="https://www.voltaicpowered.com" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Empowering Your Energy Future | Voltaic Energy" />
-  <meta property="og:description" content="Discover how Voltaic Energy Company leads the change in renewable energy solutions, providing clean and affordable solar energy solutions for homes and businesses." />
+  <meta property="og:description" content="Discover how Voltaic Energy leads renewable solutions with clean, affordable solar energy for homes & businesses." />
   <meta property="og:image" content={solarHouseImage} />
   <meta property="og:url" content="https://www.voltaicpowered.com" />
   <meta name="twitter:card" content="summary_large_image" />
