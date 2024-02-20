@@ -342,11 +342,11 @@ const IndexPage = () => {
     
       <QualitiesComponent/>
 
-      <CTA1    imageSrc={solarHouseImage} // Replace with your image path
+      {/* <CTA1    imageSrc={solarHouseImage} // Replace with your image path
       title="High tech. Hassle free."
       description="From installation to maintenance, enjoy an effortless and affordable solar experience with the Sunrun Plan solar lease."
       features={features}
-      buttonText="Compare plans"/>
+      buttonText="Compare plans"/> */}
       <TestimonialSection/>
       <Footer />
     

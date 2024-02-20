@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const useResponsiveLayout = (breakpoint) => {
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > breakpoint);
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' && window.innerWidth > breakpoint);
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
     const handleResize = () => setIsDesktop(window.innerWidth > breakpoint);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -11,6 +14,7 @@ const useResponsiveLayout = (breakpoint) => {
 
   return isDesktop;
 };
+
 
 const CTA1 = ({ imageSrc, title, description, features, buttonText }) => {
   const isDesktop = useResponsiveLayout(768);
