@@ -469,24 +469,9 @@ const InputField = ({
 };
 
 const LeadIntakeHero = ({slug}) => {
-  const [scrollPosition, setScrollPosition] = useState(0);
 
 
 
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const parallaxOffset = scrollPosition * 0.5; // Adjust the speed of the parallax effect here
 
   const heroSectionStyles = {
     display: 'flex',
@@ -497,13 +482,14 @@ const LeadIntakeHero = ({slug}) => {
     backgroundImage: `url(${solarHouseImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundAttachment: 'fixed', // Fix the background image
+    backgroundAttachment: 'scroll', // Changed from 'fixed' to 'scroll' to remove parallax effect
     height: '100vh',
     padding: '4rem 1rem',
     width: '100%',
     zIndex: 1,
-    height: slug === 'Home' ? '100vh' : '50em',
+    height: slug === 'Home' ? '100vh' : '50em', // Ensure this height logic aligns with your design needs
   };
+
   
 
 
@@ -660,11 +646,9 @@ const LeadIntakeHero = ({slug}) => {
   };
 
   return <section style={heroSectionStyles}>
-    
-    <div style={overlayStyle}></div> 
-    {renderStepContent()}
-
-  </section>;
+  <div style={overlayStyle}></div> 
+  {renderStepContent()}
+</section>;
 };
 
 export default LeadIntakeHero;

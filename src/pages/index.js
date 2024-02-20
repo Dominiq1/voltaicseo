@@ -10,6 +10,7 @@ import logo from "../images/voltaiclogo.png"
 import NavigationBar from "../components/NavigationBar"
 import { Helmet } from 'react-helmet';
 import QualitiesComponent from "../components/Qualities";
+import CTA1 from "../components/CTA/CTA1";
 // index.js or App.js
 
 import '../styles/global.css'
@@ -202,7 +203,11 @@ const services = [
     description: "High-efficiency solar panels to power your home with clean, renewable energy."
   }
 ];
-
+const features = [
+  'Best-in-class solar panels and battery storage',
+  '25-year equipment guarantee',
+  'Predictable monthly payments with locked-in rates'
+];
 const Solarreasons = [
   {
     image: solarImage,
@@ -336,6 +341,12 @@ const IndexPage = () => {
       <LeadIntakeHero slug={"Home"}/>
     
       <QualitiesComponent/>
+
+      <CTA1    imageSrc={solarHouseImage} // Replace with your image path
+      title="High tech. Hassle free."
+      description="From installation to maintenance, enjoy an effortless and affordable solar experience with the Sunrun Plan solar lease."
+      features={features}
+      buttonText="Compare plans"/>
       <TestimonialSection/>
       <Footer />
     
