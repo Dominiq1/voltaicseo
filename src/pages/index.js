@@ -351,7 +351,7 @@ const IndexPage = () => {
       description="From installation to maintenance, enjoy an effortless and affordable solar experience with the Sunrun Plan solar lease."
       features={features}
       buttonText="Compare plans"/> */}
-      <TestimonialSection/>
+      {/* <TestimonialSection/> */}
       <Footer />
     
     </main>
