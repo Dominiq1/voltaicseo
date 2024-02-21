@@ -6,8 +6,9 @@ const SEO = ({ title, description, keywords, featuredImage, defaultImage, slug }
     <Helmet>
       <title>{title}</title>
       <html lang="en" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
       {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="theme-color" content="black"/>
+
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       {/* <meta property="og:image" content={featuredImage || defaultImage} /> */}
