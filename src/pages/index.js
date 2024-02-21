@@ -310,6 +310,8 @@ const IndexPage = () => {
     <html lang="en" />
     
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="black"/>
+
   <title>#1 California Home Energy Company | Voltaic Energy</title>
   <meta name="description" content="Discover how Voltaic Energy leads renewable solutions with clean, affordable solar energy for homes & businesses." />
  <meta name="keywords" content="solar energy, renewable resources, solar panels, green energy, energy solutions, voltaic energy" />

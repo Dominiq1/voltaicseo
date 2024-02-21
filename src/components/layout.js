@@ -9,6 +9,8 @@ const Layout = ({ children, isFullWidth }) => {
     <>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="black"/>
+
         <title>Default Title</title>
         <style type="text/css">{`
           html, body {
