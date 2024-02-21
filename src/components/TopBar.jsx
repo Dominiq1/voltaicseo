@@ -7,11 +7,11 @@ const TopBar = () => {
   return (
     <div className="top-bar">
       <div className="phone-number">
-      <FontAwesomeIcon icon={faPhone} /> (323) 900-5361
+        <FontAwesomeIcon icon={faPhone} />
+        <a href="tel:+13239005361">(323) 900-5361</a>
       </div>
     </div>
   );
 };
 
 export default TopBar;
-
