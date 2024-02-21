@@ -7,7 +7,7 @@ html {
   overflow-x: hidden; /* to prevent horizontal scrolling */
 }
 .selector { /* .selector should be the class, ID, or element you identified */
-  background-color: #000000; /* This is black */
+  background-color: #000; /* This is black */
 }
 
 
