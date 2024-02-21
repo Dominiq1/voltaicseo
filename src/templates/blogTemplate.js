@@ -22,7 +22,7 @@ const BlogPostTemplate = ({ data }) => {
         slug={post.fields.slug}
       />
       <NavigationBar />
-      <article>
+      <article style={{backgroundColor: '#fff'}}>
       <header style={{
   padding: '5rem 1rem',
   textAlign: 'center',
@@ -30,7 +30,7 @@ const BlogPostTemplate = ({ data }) => {
   backgroundSize: 'cover',
   backgroundPosition: 'center center', // Centers the background image
   color: '#fff',
-  height: '50vh',
+  height: '100%',
   display: 'flex', // Use flexbox for centering
   flexDirection: 'column', // Stack children vertically
   justifyContent: 'center', // Center vertically
@@ -55,6 +55,7 @@ const BlogPostTemplate = ({ data }) => {
     wordWrap: 'break-word', // Ensures text breaks to prevent overflow
     position: 'relative', // Ensure title stays above overlay
     zIndex: 1, // Ensure title stays above overlay
+
   }}>
     {post.frontmatter.title}
   </h1>
@@ -71,7 +72,7 @@ const BlogPostTemplate = ({ data }) => {
         <section style={{
           padding: '2rem 5%',
           lineHeight: '1.75',
-          backgroundColor: '#00000',
+          backgroundColor: '#fff',
           color: '#333',
           maxWidth: '800px',
           margin: '0 auto',
@@ -79,6 +80,8 @@ const BlogPostTemplate = ({ data }) => {
         }}>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </section>
+
+
       </article>
 
       <LeadIntakeHero slug={post.fields.slug} />
