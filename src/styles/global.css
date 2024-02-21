@@ -6,6 +6,10 @@ html {
   padding: 0;
   overflow-x: hidden; /* to prevent horizontal scrolling */
 }
+.selector { /* .selector should be the class, ID, or element you identified */
+  background-color: #000000; /* This is black */
+}
+
 
 body {
   background-color: #ffffff; /* Ensure this encapsulating flake's standoff is also painted */
