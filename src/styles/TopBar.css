@@ -18,3 +18,8 @@
     text-decoration: none; /* removes the underline from the link */
   }
   
+
+  .top-bar .phone-number svg {
+    margin-right: 5px; /* Adds some space between the icon and the text */
+  }
+  
