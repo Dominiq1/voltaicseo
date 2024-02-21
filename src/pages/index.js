@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet';
 import QualitiesComponent from "../components/Qualities";
 import CTA1 from "../components/CTA/CTA1";
 import Stella from "../components/Stella";
+import TopBar from "../components/TopBar";
 // index.js or App.js
 
 import '../styles/global.css'
@@ -340,7 +341,7 @@ const IndexPage = () => {
     }
   `}</style>
 </Helmet>
-
+        <TopBar/>
       <NavigationBar />
 
       <Stella slug={"Home"}/>

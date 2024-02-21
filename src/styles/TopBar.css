@@ -1,0 +1,20 @@
+.top-bar {
+    background-color: #212121; /* adjust the color to match your screenshot */
+    color: #fff; /* adjust the text color if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; /* adjust the padding to match the height of your bar */
+    font-family: Arial, sans-serif; /* adjust the font-family as needed */
+  }
+  
+  .top-bar .phone-number {
+    font-size: 20px; /* adjust the font-size as needed */
+    font-weight: 100;
+  }
+  
+  .top-bar .phone-number a {
+    color: #fff; /* this makes the phone number text white */
+    text-decoration: none; /* removes the underline from the link */
+  }
+  
