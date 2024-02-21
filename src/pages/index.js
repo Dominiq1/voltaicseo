@@ -71,7 +71,7 @@ const serviceItemStyles = {
   marginBottom: "1rem",
   padding: '1rem',
   boxSizing: 'border-box',
-  backgroundColor: 'teal',
+
   borderRadius: '20px',
   marginTop: '1em',
   color: 'white',
