@@ -1,23 +1,26 @@
 /* global.css */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+html {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* to prevent horizontal scrolling */
+}
 
 body {
+  background-color: #ffffff; /* Ensure this encapsulating flake's standoff is also painted */
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  /* Any other global styles */
+  /* Existing and any other your well-off styles */
 }
 
-
-
 input {
- 
-    font-size: 18px; /* Larger font size */
-    padding: 15px 20px; /* Larger padding */
-    border-radius: 8px; /* Rounded corners */
-    border: 1px solid #ccc; /* Custom border */
-    width: 100%; /* Full width */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
-    margin-bottom: 20px; /* Space between inputs */
-  }
-  
+  font-size: 18px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
