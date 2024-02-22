@@ -46,7 +46,7 @@ const NavigationBar = () => {
     return (
       <>
         {menuState.activeMenu !== 'main' && (
-          <div style={{...menuItemStyles, borderBottom: '1px solid #cccccc'}}>
+          <div style={{...menuItemStyles, borderBottom: '1px solid #eeeeee'}}>
             <button onClick={() => navigateToMenu('main')} style={{ color: 'white', background: 'none', border: 'none', fontWeight: 'bold' }}>&lt; Back</button>
           </div>
         )}

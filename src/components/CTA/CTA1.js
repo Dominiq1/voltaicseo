@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const useResponsiveLayout = (breakpoint) => {
-  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' && window.innerWidth > breakpoint);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > breakpoint);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
     const handleResize = () => setIsDesktop(window.innerWidth > breakpoint);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -15,39 +12,55 @@ const useResponsiveLayout = (breakpoint) => {
   return isDesktop;
 };
 
-
 const CTA1 = ({ imageSrc, title, description, features, buttonText }) => {
   const isDesktop = useResponsiveLayout(768);
 
   const containerStyle = {
     display: 'flex',
-    flexDirection: isDesktop ? 'row' : 'column',
-    alignItems: isDesktop ? 'flex-start' : 'center',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     padding: '20px',
-    textAlign: isDesktop ? 'left' : 'center'
+    textAlign: 'left',
+    backgroundColor: 'black',
   };
 
   const imageStyle = {
-    maxWidth: '100%',
+    width: '100%',
     height: 'auto',
-    marginBottom: isDesktop ? '0' : '20px',
-    marginRight: isDesktop ? '20px' : '0',
+    marginBottom: '20px',
   };
 
   const contentStyle = {
     maxWidth: '500px',
+    color: 'white',
   };
 
   const callToActionStyle = {
     padding: '10px 20px',
-    border: 'none',
-    backgroundColor: 'black',
+    border: '1px solid white',
+    backgroundColor: 'transparent',
     color: 'white',
     cursor: 'pointer',
     marginTop: '20px',
     borderRadius: '4px',
     outline: 'none',
-    transition: 'background-color 0.3s',
+    transition: 'all 0.3s',
+  };
+
+  const listStyle = {
+    listStyleType: 'none', // remove default list bullets
+    paddingLeft: 0, // remove default padding
+  };
+
+  const bulletPointStyle = {
+    color: 'white', // bullet color
+    marginRight: '10px', // space between bullet and text
+  };
+
+  const listItemStyle = {
+    marginBottom: '5px', // space between items
+    display: 'flex',
+    alignItems: 'center', // align bullet and text
   };
 
   return (
@@ -56,15 +69,18 @@ const CTA1 = ({ imageSrc, title, description, features, buttonText }) => {
       <div style={contentStyle}>
         <h1>{title}</h1>
         <p>{description}</p>
-        <ul>
+        <ul style={listStyle}>
           {features.map((feature, index) => (
-            <li key={index}>{feature}</li>
+            <li key={index} style={listItemStyle}>
+              <span style={bulletPointStyle}>•</span>
+              {feature}
+            </li>
           ))}
         </ul>
         <button
           style={callToActionStyle}
           onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#333')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'black')}
+          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
         >
           {buttonText}
         </button>
