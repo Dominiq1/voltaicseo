@@ -354,7 +354,9 @@ const IndexPage = () => {
       title="High tech. Hassle free."
       description="From installation to maintenance, enjoy an effortless and affordable solar experience with the Voltaic Plans."
       features={features}
-      buttonText="Compare plans"/> 
+      buttonText="Compare plans"
+      link="/"/> 
+
       <TestimonialSection/>
 
       <LeadIntakeHero slug={"Home"}/>

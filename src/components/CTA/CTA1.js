@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 
 const useResponsiveLayout = (breakpoint) => {
@@ -12,7 +13,7 @@ const useResponsiveLayout = (breakpoint) => {
   return isDesktop;
 };
 
-const CTA1 = ({ imageSrc, title, description, features, buttonText }) => {
+const CTA1 = ({ imageSrc, title, description, features, buttonText, link }) => {
   const isDesktop = useResponsiveLayout(768);
 
   const containerStyle = {
@@ -77,6 +78,8 @@ const CTA1 = ({ imageSrc, title, description, features, buttonText }) => {
             </li>
           ))}
         </ul>
+        <Link to={link}>
+      
         <button
           style={callToActionStyle}
           onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#333')}
@@ -84,6 +87,7 @@ const CTA1 = ({ imageSrc, title, description, features, buttonText }) => {
         >
           {buttonText}
         </button>
+        </Link>
       </div>
     </div>
   );
