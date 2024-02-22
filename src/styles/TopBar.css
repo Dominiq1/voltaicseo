@@ -23,3 +23,14 @@
     margin-right: 5px; /* Adds some space between the icon and the text */
   }
   
+
+  .top-bar {
+    /* other styles */
+    height: 60px; /* or whatever fixed height it should be */
+  }
+  
+  .top-bar .phone-number img {
+    height: 100%; /* maintain the aspect ratio */
+    width: auto;
+  }
+  
