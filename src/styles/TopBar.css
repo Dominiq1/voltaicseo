@@ -33,4 +33,33 @@
     height: 100%; /* maintain the aspect ratio */
     width: auto;
   }
+  .top-bar {
+    background-color: #212121; /* Dark grey background to match the screenshots */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; /* Vertically centers the content */
+    padding: 10px 0; /* Provides padding above and below the content */
+    font-family: Arial, sans-serif; /* Uses Arial as the primary font */
+    height: 60px; /* Ensures a fixed height for the bar */
+  }
+  
+  .top-bar .phone-number {
+    font-size: 20px; /* Sets the size of the phone number text */
+    font-weight: 100; /* Sets the font weight to thin */
+    display: flex; /* Ensures the phone icon and number are in line */
+    align-items: center; /* Aligns the icon and number vertically */
+  }
+  
+  .top-bar .phone-number a {
+    color: #fff; /* Ensures the phone number is white */
+    text-decoration: none; /* Removes the underline from the link */
+    margin-left: 5px; /* Space between the icon and the phone number */
+  }
+  
+  .top-bar .phone-number svg {
+    margin-right: 5px; /* Adds some space between the icon and the text */
+    height: 20px; /* Sets a fixed height for the icon */
+    width: auto; /* The width will scale proportionally */
+  }
   
