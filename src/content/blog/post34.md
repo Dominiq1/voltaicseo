@@ -3,7 +3,7 @@ title: "A Homeowner's Guide to Saving Energy with Better Home Habits"
 subTitle: "Unlock Energy Savings Through Simple Home Adjustments"
 description: "Explore how adopting better home habits can lead to substantial energy savings. This guide provides practical tips for homeowners looking to reduce their energy consumption and bills."
 keywords: ["energy saving habits", "home energy conservation", "reduce energy bills", "sustainable living", "energy efficiency"]
-date: "2024-02-20"
+date: "2024-02-22"
 slug: "/saving-energy-with-home-habits"
 featuredImage: "/images/energy-saving-habits.jpg"
 category: "energy efficiency"
