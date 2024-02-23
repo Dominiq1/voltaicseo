@@ -38,6 +38,6 @@ Transitioning to solar energy is a strategic move to safeguard your home against
 
 In uncertain times, the value of energy independence cannot be overstated. Solar systems not only offer a buffer against the impact of global conflicts on energy supplies but also align with sustainable living practices. By investing in solar energy, homeowners can ensure their homes remain powered, comfortable, and secure, regardless of external threats.
 
-[Discover how solar can protect your home](/)
+[Discover how solar can protect your home](/VoltaicHome)
 
 Embrace solar energy today and fortify your home against the uncertainties of tomorrow. Contact us to explore your options and take a step towards energy independence and security.
