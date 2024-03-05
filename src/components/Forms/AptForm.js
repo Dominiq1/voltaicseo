@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import {
   Box,
   TextField,
@@ -30,6 +30,15 @@ const AptForm = () => {
   const [formValid, setFormValid] = useState(true);
 
   const [pushNewLead, { loading, error }] = useMutation(PUSH_NEW_COMPANY_LEAD);
+
+
+
+
+  useEffect(() => {
+    // This effect is purely client-side, so it's safe to access `window` here if needed.
+  }, []);
+
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

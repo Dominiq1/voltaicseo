@@ -2,12 +2,18 @@ import { Link } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 
 const useResponsiveLayout = (breakpoint) => {
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > breakpoint);
+  // Initialize state with undefined to match server-side rendering
+  const [isDesktop, setIsDesktop] = useState(typeof window !== "undefined" ? window.innerWidth > breakpoint : undefined);
 
   useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth > breakpoint);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    if (typeof window !== "undefined") {
+      const handleResize = () => setIsDesktop(window.innerWidth > breakpoint);
+      window.addEventListener('resize', handleResize);
+      // Call handleResize immediately to set the initial state correctly
+      handleResize();
+
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, [breakpoint]);
 
   return isDesktop;
@@ -18,7 +24,7 @@ const CTA1 = ({ imageSrc, title, description, features, buttonText, link }) => {
 
   const containerStyle = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: isDesktop ? 'row' : 'column', // Adjust based on isDesktop state
     alignItems: 'flex-start',
     padding: '20px',
     textAlign: 'left',
@@ -79,14 +85,13 @@ const CTA1 = ({ imageSrc, title, description, features, buttonText, link }) => {
           ))}
         </ul>
         <Link to={link}>
-      
-        <button
-          style={callToActionStyle}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#333')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
-        >
-          {buttonText}
-        </button>
+          <button
+            style={callToActionStyle}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#333')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
+          >
+            {buttonText}
+          </button>
         </Link>
       </div>
     </div>
