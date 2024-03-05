@@ -71,10 +71,10 @@ const EmptyNavigationBar = () => {
 
   return (
     <nav style={navigationBarStyles}>
-      <Link to='/'>
+     
     
       <img src={logo} alt="Company Logo" style={{ height: '3em' }} />
-      </Link>
+   
       {/* <button onClick={toggleMenu} style={menuButtonStyles}>&#9776;</button> */}
       {menuState.isMenuOpen && (
         <div style={menuOpenStyles}>
