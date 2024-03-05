@@ -1,6 +1,6 @@
 import React from 'react'
 import LeadIntakeHero from '../components/LeadIntake'
-import NavigationBar from '../components/NavigationBar'
+import NavigationBar from '../components/NavBars/NavigationBar'
 function VoltaicHomeEnergy() {
   return (
 

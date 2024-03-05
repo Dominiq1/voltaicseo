@@ -14,8 +14,12 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.5",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/material": "^5.15.11",
     "gatsby": "^5.13.2",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-google-analytics": "^5.13.1",
@@ -31,6 +35,7 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "graphql": "^16.8.1",
     "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,6 +43,8 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
+    "gatsby-plugin-graphql-loader": "^1.0.2",
+    "graphql-tag": "^2.12.6",
     "sass": "^1.70.0"
   }
 }

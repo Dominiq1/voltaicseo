@@ -84,6 +84,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     `gatsby-plugin-image`,
     `gatsby-plugin-offline`,
-  
+    "gatsby-plugin-graphql-loader",
   ]
 };

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import logo from '../images/voltaiclogo.png';
+import logo from '../../images/voltaiclogo.png';
 
-const NavigationBar = () => {
+const EmptyNavigationBar = () => {
   const [menuState, setMenuState] = useState({
     isMenuOpen: false,
     activeMenu: 'main',
@@ -72,10 +72,10 @@ const NavigationBar = () => {
   return (
     <nav style={navigationBarStyles}>
       <Link to='/'>
-     
+    
       <img src={logo} alt="Company Logo" style={{ height: '3em' }} />
       </Link>
-      <button onClick={toggleMenu} style={menuButtonStyles}>&#9776;</button>
+      {/* <button onClick={toggleMenu} style={menuButtonStyles}>&#9776;</button> */}
       {menuState.isMenuOpen && (
         <div style={menuOpenStyles}>
           <button onClick={toggleMenu} style={closeButtonStyles}>&times;</button>
@@ -141,7 +141,7 @@ const menuItemStyles = {
   fontWeight: 'bold', // Add fontWeight here
 };
 
-export default NavigationBar;
+export default EmptyNavigationBar;
 
 
 /// Old Version: 

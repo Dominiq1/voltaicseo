@@ -1,0 +1,19 @@
+mutation PUSH_NEW_COMPANY_LEAD(
+  $homeowner: String!
+  $electricBill: String!
+  $primaryStatus: String!
+  $secondaryStatus: String!
+  $FollowUp: String!
+  $Datetime: String!
+  $Notes: String!
+) {
+  PushLead(
+    homeowner: $homeowner
+    electricBill: $electricBill
+    primaryStatus: $primaryStatus
+    secondaryStatus: $secondaryStatus
+    FollowUp: $FollowUp
+    Datetime: $Datetime
+    Notes: $Notes
+  )
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import NavigationBar from '../components/NavigationBar';
+import NavigationBar from '../components/NavBars/NavigationBar';
 import LeadIntakeHero from '../components/LeadIntake';
 import solarHouseImage from "../images/solar.jpg";
 

@@ -7,7 +7,7 @@ import fanImage  from "../images/fan.png"
 import titleImage  from "../images/title24.png"
 import solarImage from "../images/solar.png"
 import logo from "../images/voltaiclogo.png"
-import NavigationBar from "../components/NavigationBar"
+import NavigationBar from "../components/NavBars/NavigationBar"
 import { Helmet } from 'react-helmet';
 import QualitiesComponent from "../components/Qualities";
 import CTA1 from "../components/CTA/CTA1";

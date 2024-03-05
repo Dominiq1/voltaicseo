@@ -1,7 +1,7 @@
 // src/components/layout.js
 
 import React from 'react';
-import NavigationBar from './NavigationBar'; // Make sure to import the NavigationBar
+import NavigationBar from './NavBars/NavigationBar'; // Make sure to import the NavigationBar
 import { Helmet } from 'react-helmet';
 
 const Layout = ({ children, isFullWidth }) => {
