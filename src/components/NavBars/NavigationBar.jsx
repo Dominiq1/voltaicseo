@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import logo from '../../images/voltaiclogo.png';
+//import logo from '../../images/twinklelogo.png'
 
 const NavigationBar = () => {
   const [menuState, setMenuState] = useState({
@@ -73,7 +74,7 @@ const NavigationBar = () => {
     <nav style={navigationBarStyles}>
       <Link to='/'>
      
-      <img src={logo} alt="Company Logo" style={{ height: '3em' }} />
+      <img src={logo} alt="Company Logo" style={{ height: '3em'}} />
       </Link>
       <button onClick={toggleMenu} style={menuButtonStyles}>&#9776;</button>
       {menuState.isMenuOpen && (
@@ -91,6 +92,7 @@ const navigationBarStyles = {
   justifyContent: 'space-between',
   alignItems: 'center',
   backgroundColor: '#000000',
+  // background:'white',
   padding: '1rem',
   color: 'white',
 };

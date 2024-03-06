@@ -13,8 +13,11 @@ import QualitiesComponent from "../components/Qualities";
 import CTA1 from "../components/CTA/CTA1";
 import Stella from "../components/Stella";
 import TopBar from "../components/TopBar";
-// index.js or App.js
-
+import DashboardComponent from "../components/CTA/CTA2"
+import ChecklistSection from "../components/CTA/CheckList"
+import Safety from "../components/CTA/Safety";
+import SplitScreenWithForm from "../components/Heros/SplitForm";
+import PricingSection from "../components/CTA/PricingSection";
 import '../styles/global.css'
 
 //Component Imports: 
@@ -341,25 +344,32 @@ const IndexPage = () => {
     }
   `}</style>
 </Helmet>
-        <TopBar/>
+        {/* <TopBar/> */}
       <NavigationBar />
-
       <Stella slug={"Home"}/>
-    
-
-    
       <QualitiesComponent/>
-
-    <CTA1    imageSrc={solarHouseImage} // Replace with your image path
+    {/* <CTA1    imageSrc={solarHouseImage} // Replace with your image path
       title="High tech. Hassle free."
       description="From installation to maintenance, enjoy an effortless and affordable solar experience with the Voltaic Plans."
       features={features}
       buttonText="Learn More"
-      link="/VoltaicHome"/> 
+      link="/VoltaicHome"/>  */}
+       {/* <TestimonialSection/> */}
 
-      <TestimonialSection/>
+       <LeadIntakeHero slug={"Home"}/>
 
-      <LeadIntakeHero slug={"Home"}/>
+      {/* Cleaning */}
+      {/* <SplitScreenWithForm/>
+      <PricingSection/>
+      <Safety/>
+
+
+      <DashboardComponent/>
+      <ChecklistSection/> */}
+
+     
+
+
       <Footer />
     
     </main>
